@@ -1,31 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
+using LaunchAll;
 
-namespace LaunchAll
+namespace MakeAllDirs
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
-        /// Punto di ingresso principale dell'applicazione.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            // MakeAllDirs
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            if (args.Length == 1)
-            {
-                Application.Run(new frmMakeAllDirs(args[0]));
-            }
-            else if (args.Length == 2) 
-            {
-                Application.Run(new frmMakeAllDirs(args[0], args[1]));
-            }
-            else
-                Application.Run(new frmMakeAllDirs());
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new frmMakeAllDirs());
         }
     }
 }

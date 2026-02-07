@@ -1,3 +1,2 @@
-*.pdb
-*.vshost.exe
-*.vshost.exe.manifest
+*
+!.gitignore
