@@ -14,6 +14,7 @@ namespace LaunchAll
     {
         private string fileConfigurazioneIniziale = "";
         private ToolTip toolTipControlli;
+        private string ultimaRicercaNodi = "";
 
         string versione = "V." + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -142,7 +143,9 @@ namespace LaunchAll
                 case "txtCartellaCopia": return "Cartella sorgente da cui leggere i file da copiare.";
                 case "txtFileConfigurazione": return "Percorso del file di configurazione (.mall).";
                 case "txtNuova": return "Nome della nuova cartella da aggiungere all'albero.";
-                case "txtEdit": return "Campo di modifica rapida del nome del nodo selezionato.";
+                case "txtPathDestinazione": return "Cartella di destinazione dei file che verranno aggiunti, scelta con 'Scegli cartella'. Se vuota, ogni file va nella stessa sottocartella in cui si trova rispetto alla cartella di origine. Doppio clic per aprirla.";
+                case "btnApplicaDestinazione": return "Assegna alle righe selezionate la cartella di destinazione corrente (quella scelta, o la cartella d'origine di ogni file se non ne è scelta nessuna).";
+                case "btnCartellaOutDefault": return "Svuota la cartella scelta: i file aggiunti in seguito verranno copiati nella stessa sottocartella in cui si trovano rispetto alla cartella di origine.";
                 case "txtStringaDa": return "Testo da cercare nei nomi file durante la copia.";
                 case "txtStringaA": return "Testo sostitutivo per la prima regola di rinomina.";
                 case "txtStringa2Da": return "Secondo testo da cercare nei nomi file.";
@@ -158,18 +161,20 @@ namespace LaunchAll
                 case "btnPiuAlbero": return "Aggiunge una sottocartella al nodo selezionato.";
                 case "btnPiuInizio": return "Aggiunge una cartella radice all'albero.";
                 case "btnMenoAlbero": return "Rimuove il nodo selezionato dall'albero.";
-                case "btnDisabilitaCreare": return "Disabilita la creazione per i nodi selezionati (unchecked).";
-                case "btnAbilitaCreare": return "Abilita la creazione per i nodi selezionati (checked).";
+                case "btnDisabilitaCreare": return "Disabilita la creazione di tutti i nodi.";
+                case "btnAbilitaCreare": return "Abilita la creazione di tutti i nodi.";
+                case "txtCercaNodo": return "Testo da cercare nei nomi delle cartelle dell'albero (max 20 caratteri).";
+                case "btnCercaNodo": return "Cerca il testo nell'albero; premendo di nuovo trova l'occorrenza successiva.";
                 case "btnOrdina": return "Ordina alfabeticamente i nodi dell'albero.";
                 case "btnPiuPiu": return "Espande tutti i nodi dell'albero.";
                 case "btnMenoMeno": return "Comprime tutti i nodi dell'albero.";
                 case "btnPiuCopia": return "Aggiunge file all'elenco da copiare.";
                 case "btnMenoCopia": return "Rimuove i file selezionati dall'elenco.";
-                case "btnCartellaPerCopiare": return "Assegna ai file selezionati la cartella dell'albero selezionata.";
+                case "btnCartellaPerCopiare": return "Usa la cartella selezionata nell'albero come destinazione dei file che verranno aggiunti.";
                 case "btnCheckAll": return "Seleziona (check) tutti i file in elenco.";
                 case "btnDeCheckAll": return "Deseleziona (uncheck) tutti i file in elenco.";
-                case "btnCheckOn": return "Seleziona i file evidenziati in elenco.";
-                case "btnCheckOff": return "Deseleziona i file evidenziati in elenco.";
+                case "btnCheckOn": return "Spunta le righe evidenziate in elenco (tutte, se nessuna è evidenziata).";
+                case "btnCheckOff": return "Toglie la spunta alle righe evidenziate in elenco (a tutte, se nessuna è evidenziata).";
                 case "btnCartellaRoot": return "Apre la scelta della cartella di destinazione principale.";
                 case "btnCartellaCopia": return "Apre la scelta della cartella sorgente dei file.";
                 case "btnApriFile": return "Apre un file di configurazione esistente.";
@@ -252,20 +257,129 @@ namespace LaunchAll
 
         private void btnPiuCopia_Click(object sender, EventArgs e)
         {
-            opfilScelta.InitialDirectory = txtCartellaCopia.Text;
+            // Use the legacy CommonDialog implementation to avoid failures in the
+            // native IFileDialog interop used by the Vista-style dialog.
+            opfilScelta.AutoUpgradeEnabled = false;
+
+            string initialDirectory = txtCartellaCopia.Text.Trim();
+            opfilScelta.InitialDirectory = Directory.Exists(initialDirectory)
+                ? initialDirectory
+                : string.Empty;
             opfilScelta.Multiselect = true;
-            opfilScelta.FileName = "";
+            opfilScelta.FileName = string.Empty;
+            opfilScelta.RestoreDirectory = true;
+
             DialogResult r = opfilScelta.ShowDialog();
             if (r == System.Windows.Forms.DialogResult.OK)
             {
+                List<string> fileScartati = new List<string>();
                 foreach (string file in opfilScelta.FileNames)
                 {
-                    lstvwFileDaCopiare.Items.Add(file);
-                    // lo segna
-                    lstvwFileDaCopiare.Items[lstvwFileDaCopiare.Items.Count - 1].Checked=true;
+                    string cartellaDestinazione = RicavaCartellaDestinazione(file);
+                    if (TrovaDuplicato(file, cartellaDestinazione, null) != null)
+                    {
+                        fileScartati.Add(file + "  ->  " + cartellaDestinazione);
+                        continue;
+                    }
+
+                    ListViewItem nuovaRiga = new ListViewItem(file);
+                    nuovaRiga.SubItems.Add(cartellaDestinazione);
+                    nuovaRiga.Checked = true;
+                    lstvwFileDaCopiare.Items.Add(nuovaRiga);
                 }
+                if (fileScartati.Count > 0)
+                    MessageBox.Show("I seguenti file sono già in elenco con la stessa cartella di destinazione e non sono stati aggiunti:\n\n" +
+                        string.Join("\n", fileScartati) +
+                        "\n\nPer copiare un file in una cartella diversa, selezionare la cartella nell'albero, " +
+                        "premere 'Scegli cartella' e poi aggiungere di nuovo il file.",
+                        "File già presenti", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             lstvwFileDaCopiare.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+
+        /// <summary>
+        /// Cartella di destinazione per un file che si sta aggiungendo: quella scelta
+        /// con "Scegli cartella" (scritta in txtPathDestinazione) oppure, se txtPathDestinazione è vuoto,
+        /// la stessa sottocartella che il file ha rispetto alla cartella di origine.
+        /// </summary>
+        private string RicavaCartellaDestinazione(string percorsoFile)
+        {
+            return string.IsNullOrWhiteSpace(txtPathDestinazione.Text)
+                ? RicavaCartellaDestinazioneDefault(percorsoFile)
+                : txtPathDestinazione.Text;
+        }
+
+        /// <summary>
+        /// Ricava la cartella di destinazione relativa di default per un file sorgente:
+        /// la sottocartella del file rispetto alla cartella sorgente (".\sub\cartella"),
+        /// oppure ".\" se il file è nella cartella sorgente o al di fuori di essa.
+        /// </summary>
+        private string RicavaCartellaDestinazioneDefault(string percorsoFile)
+        {
+            string cartellaSorgente = txtCartellaCopia.Text;
+            string? cartellaFile = Path.GetDirectoryName(percorsoFile);
+            if (string.IsNullOrWhiteSpace(cartellaSorgente) || string.IsNullOrWhiteSpace(cartellaFile))
+                return PrefissoRelativo();
+
+            string relativo;
+            try
+            {
+                relativo = Path.GetRelativePath(cartellaSorgente, cartellaFile);
+            }
+            catch (ArgumentException)
+            {
+                return PrefissoRelativo();
+            }
+
+            if (relativo == "." || relativo == ".." || Path.IsPathRooted(relativo) ||
+                relativo.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal))
+                return PrefissoRelativo();
+
+            return Path.Combine(".", relativo);
+        }
+
+        /// <summary>Percorso assoluto del file sorgente, usato per confrontare le righe.</summary>
+        private string ChiaveSorgente(string testoSorgente)
+        {
+            string normalizzato = NormalizzaPercorsoSorgente(testoSorgente);
+            string completo = Path.IsPathRooted(normalizzato)
+                ? normalizzato
+                : Path.Combine(txtCartellaCopia.Text, normalizzato);
+            try
+            {
+                return Path.GetFullPath(completo);
+            }
+            catch (Exception ex) when (ex is ArgumentException || ex is NotSupportedException || ex is PathTooLongException)
+            {
+                return completo;
+            }
+        }
+
+        /// <summary>Cartella di destinazione normalizzata ("" = root), usata per confrontare le righe.</summary>
+        private static string ChiaveDestinazione(string testoDestinazione)
+        {
+            string normalizzata = Path.TrimEndingDirectorySeparator(NormalizzaPercorsoRelativo(testoDestinazione));
+            return normalizzata == "." ? "" : normalizzata;
+        }
+
+        /// <summary>
+        /// Cerca in griglia una riga con lo stesso file sorgente e la stessa destinazione.
+        /// La riga <paramref name="rigaDaEscludere"/> (se non null) non viene considerata.
+        /// </summary>
+        private ListViewItem? TrovaDuplicato(string sorgente, string destinazione, ListViewItem? rigaDaEscludere)
+        {
+            string chiaveSorgente = ChiaveSorgente(sorgente);
+            string chiaveDestinazione = ChiaveDestinazione(destinazione);
+            foreach (ListViewItem riga in lstvwFileDaCopiare.Items)
+            {
+                if (riga == rigaDaEscludere)
+                    continue;
+                string destinazioneRiga = riga.SubItems.Count > 1 ? riga.SubItems[1].Text : "";
+                if (string.Equals(ChiaveSorgente(riga.Text), chiaveSorgente, StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(ChiaveDestinazione(destinazioneRiga), chiaveDestinazione, StringComparison.OrdinalIgnoreCase))
+                    return riga;
+            }
+            return null;
         }
 
         private void btnMenoCopia_Click(object sender, EventArgs e)
@@ -288,16 +402,55 @@ namespace LaunchAll
 
         private void btnCartellaPerCopiare_Click(object sender, EventArgs e)
         {
-            try
-            { 
-                foreach (ListViewItem riga in lstvwFileDaCopiare.SelectedItems)
-                    riga.SubItems[1].Text = Path.Combine(".", trwCartelleDaCreare.SelectedNode.FullPath);
-                lstvwFileDaCopiare.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            }
-            catch
+            if (trwCartelleDaCreare.SelectedNode == null)
             {
-
+                MessageBox.Show("Selezionare nell'albero la cartella in cui copiare i file.");
+                return;
             }
+
+            // la cartella scelta diventa la destinazione dei file aggiunti da ora in poi
+            txtPathDestinazione.Text = Path.Combine(".", trwCartelleDaCreare.SelectedNode.FullPath);
+        }
+
+        /// <summary>
+        /// Assegna alle righe selezionate la destinazione corrente: quella in txtPathDestinazione,
+        /// oppure (txtPathDestinazione vuoto) la sottocartella d'origine di ciascun file.
+        /// Le righe che diventerebbero doppioni restano invariate e vengono segnalate.
+        /// </summary>
+        private void btnApplicaDestinazione_Click(object sender, EventArgs e)
+        {
+            if (lstvwFileDaCopiare.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selezionare le righe a cui cambiare la destinazione.");
+                return;
+            }
+
+            List<string> fileScartati = new List<string>();
+            foreach (ListViewItem riga in lstvwFileDaCopiare.SelectedItems)
+            {
+                string nuovaDestinazione = RicavaCartellaDestinazione(ChiaveSorgente(riga.Text));
+                if (TrovaDuplicato(riga.Text, nuovaDestinazione, riga) != null)
+                {
+                    fileScartati.Add(riga.Text + "  ->  " + nuovaDestinazione);
+                    continue;
+                }
+                if (riga.SubItems.Count > 1)
+                    riga.SubItems[1].Text = nuovaDestinazione;
+                else
+                    riga.SubItems.Add(nuovaDestinazione);
+            }
+            lstvwFileDaCopiare.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+            if (fileScartati.Count > 0)
+                MessageBox.Show("Le seguenti righe non sono state modificate perché esiste già una riga con lo stesso file e la stessa destinazione:\n\n" +
+                    string.Join("\n", fileScartati),
+                    "File già presenti", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnCartellaOutDefault_Click(object sender, EventArgs e)
+        {
+            // txtPathDestinazione vuoto = modalità "stessa cartella dell'origine"
+            txtPathDestinazione.Text = "";
         }
 
         private void txtRootDir_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -358,11 +511,10 @@ namespace LaunchAll
 
         private void CreaFiglio(TreeNode NodoCorrente)
         {
-            // Se il nodo è disabilitato, salta l'intero ramo (nodo e figli).
-            if (!NodoCorrente.Checked)
-                return;
-
-            Directory.CreateDirectory(Path.Combine(txtRootDir.Text, NodoCorrente.FullPath));
+            // Un nodo non selezionato non viene creato di per sé, ma i suoi figli selezionati sì:
+            // Directory.CreateDirectory crea anche le cartelle padre mancanti.
+            if (NodoCorrente.Checked)
+                Directory.CreateDirectory(Path.Combine(txtRootDir.Text, NodoCorrente.FullPath));
 
             foreach (TreeNode figlio in NodoCorrente.Nodes)
             {
@@ -405,6 +557,8 @@ namespace LaunchAll
                         string pathCartellaDestinazione = Path.Combine(txtRootDir.Text, cartellaDestinazioneRelativa);
                         fileDestinazione = Path.Combine(pathCartellaDestinazione, soloNomeFileDaCopiare);
 
+                        // la cartella di destinazione potrebbe non essere nell'albero da creare
+                        Directory.CreateDirectory(pathCartellaDestinazione);
                         File.Copy(filePartenza, fileDestinazione);
                     }
                 }
@@ -432,9 +586,23 @@ namespace LaunchAll
             trwCartelleDaCreare.CollapseAll();
         }
 
-        private void trwCartelleDaCreare_AfterSelect(object sender, TreeViewEventArgs e)
+        private void trwCartelleDaCreare_AfterCheck(object sender, TreeViewEventArgs e)
         {
-            txtEdit.Text = trwCartelleDaCreare.SelectedNode.Text;
+            // Propaga solo i cambi fatti dall'utente (mouse/tastiera): i cambi da codice
+            // (caricamento file, propagazione stessa) hanno Action == Unknown e vengono ignorati.
+            if (e.Action == TreeViewAction.Unknown || e.Node == null)
+                return;
+
+            ImpostaCheckDiscendenti(e.Node, e.Node.Checked);
+        }
+
+        private static void ImpostaCheckDiscendenti(TreeNode nodo, bool stato)
+        {
+            foreach (TreeNode figlio in nodo.Nodes)
+            {
+                figlio.Checked = stato;
+                ImpostaCheckDiscendenti(figlio, stato);
+            }
         }
 
         private void btnLaunchAll_Click(object sender, EventArgs e)
@@ -595,14 +763,14 @@ namespace LaunchAll
                     campi = Line.Split('|');
                     if (campi.Length < 3)
                         continue;
+                    // non aggiunge righe con stesso file e stessa destinazione già presenti
+                    if (TrovaDuplicato(campi[0], campi[2], null) != null)
+                        continue;
                     ListViewItem item1 = new ListViewItem(campi[0], riga);
                     // mette in seconda colonna le directory di destinazione
                     item1.SubItems.Add(campi[2]);
-                    lstvwFileDaCopiare.Items.AddRange(new ListViewItem[] { item1 });
-                    if (campi[1] != "NAB")
-                        lstvwFileDaCopiare.Items[riga].Checked = true;
-                    else
-                        lstvwFileDaCopiare.Items[riga].Checked = false;
+                    item1.Checked = campi[1] != "NAB";
+                    lstvwFileDaCopiare.Items.Add(item1);
                     riga++;
                 }
             }
@@ -747,6 +915,7 @@ namespace LaunchAll
             btnMenoCopia.Enabled = Stato;
             btnCopia.Enabled = Stato;
             btnCartellaPerCopiare.Enabled = Stato;
+            btnApplicaDestinazione.Enabled = Stato;
             btnPiuInizio.Enabled = Stato;
             btnPiuAlbero.Enabled = Stato;
             btnMenoAlbero.Enabled = Stato;
@@ -835,32 +1004,6 @@ namespace LaunchAll
             //    pathDefault = Path.GetDirectoryName(txtFileConfigurazione.Text);
         }
 
-        private void lstvwFileDaCopiare_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                txtEdit.Text = lstvwFileDaCopiare.SelectedItems[0].Text;
-            }
-            catch
-            {
-                //Console.Beep();
-            }
-        }
-
-        //private void lstvwFileDaCopiare_SelectedIndexChanged_1(object sender, EventArgs e)
-        //{
-        //    ListView lista = (ListView)sender;
-
-        //    try
-        //    {
-        //        txtEdit.Text = lista.SelectedItems[0].Text;
-        //    }
-        //    catch
-        //    {
-        //        //Beep(); 
-        //    }
-        //}
-
         private void btnTrovaESostituisci_Click(object sender, EventArgs e)
         {
             frmSostituzione f = new frmSostituzione(txtFileConfigurazione.Text);
@@ -870,15 +1013,15 @@ namespace LaunchAll
 
         private void txtEdit_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
+            // apre la cartella di destinazione scelta (o la root se è "stessa cartella")
+            string cartella = Path.Combine(txtRootDir.Text, NormalizzaPercorsoRelativo(txtPathDestinazione.Text));
             try
             {
-                System.Diagnostics.Process.Start(txtEdit.Text);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(cartella) { UseShellExecute = true });
             }
-            catch (Exception er)
+            catch (Exception ex) when (ex is System.ComponentModel.Win32Exception || ex is InvalidOperationException)
             {
-                MessageBox.Show("Errore nell'aprire " + txtEdit.Text);
-                //+ "\nErrore: " + er.ToString());
+                MessageBox.Show("Errore nell'aprire la cartella " + cartella + "\n(potrebbe non essere ancora stata creata)");
             }
         }
 
@@ -941,17 +1084,85 @@ namespace LaunchAll
             }
         }
 
+        private int colonnaOrdinamento = -1;
+        private bool ordinamentoCrescente = true;
+
+        /// <summary>
+        /// Ordina la griglia per la colonna cliccata; un secondo clic sulla stessa colonna inverte l'ordine.
+        /// </summary>
+        private void lstvwFileDaCopiare_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            ordinamentoCrescente = e.Column != colonnaOrdinamento || !ordinamentoCrescente;
+            colonnaOrdinamento = e.Column;
+
+            lstvwFileDaCopiare.ListViewItemSorter = new ConfrontoRighe(e.Column, ordinamentoCrescente);
+            lstvwFileDaCopiare.Sort();
+            // si toglie il sorter: l'ordine resta, ma le righe aggiunte dopo non vengono riordinate da sole
+            lstvwFileDaCopiare.ListViewItemSorter = null;
+
+            AggiornaIndicatoriOrdinamento();
+        }
+
+        private void AggiornaIndicatoriOrdinamento()
+        {
+            foreach (ColumnHeader colonna in lstvwFileDaCopiare.Columns)
+            {
+                string testoBase = colonna.Tag as string ?? colonna.Text;
+                colonna.Tag = testoBase;
+                colonna.Text = colonna.Index == colonnaOrdinamento
+                    ? testoBase + (ordinamentoCrescente ? " ▲" : " ▼")
+                    : testoBase;
+            }
+        }
+
+        private sealed class ConfrontoRighe : System.Collections.IComparer
+        {
+            private readonly int colonna;
+            private readonly bool crescente;
+
+            public ConfrontoRighe(int colonna, bool crescente)
+            {
+                this.colonna = colonna;
+                this.crescente = crescente;
+            }
+
+            public int Compare(object? x, object? y)
+            {
+                string a = Testo(x as ListViewItem);
+                string b = Testo(y as ListViewItem);
+                int risultato = string.Compare(a, b, StringComparison.CurrentCultureIgnoreCase);
+                return crescente ? risultato : -risultato;
+            }
+
+            private string Testo(ListViewItem? riga)
+            {
+                if (riga == null || colonna >= riga.SubItems.Count)
+                    return "";
+                return riga.SubItems[colonna].Text;
+            }
+        }
+
         private void btnCheckOff_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem i in lstvwFileDaCopiare.Items)
-                i.Checked = false;
-
+            ImpostaCheckRighe(false);
         }
 
         private void btnCheckOn_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem i in lstvwFileDaCopiare.Items)
-                i.Checked = true;
+            ImpostaCheckRighe(true);
+        }
+
+        /// <summary>
+        /// Imposta il check sulle righe selezionate nella griglia;
+        /// se nessuna riga è selezionata lo imposta su tutte le righe.
+        /// </summary>
+        private void ImpostaCheckRighe(bool stato)
+        {
+            System.Collections.IEnumerable righe = lstvwFileDaCopiare.SelectedItems.Count > 0
+                ? lstvwFileDaCopiare.SelectedItems
+                : lstvwFileDaCopiare.Items;
+            foreach (ListViewItem riga in righe)
+                riga.Checked = stato;
         }
 
         private void txtDisco_TextChanged(object sender, EventArgs e)
@@ -997,16 +1208,6 @@ namespace LaunchAll
         private void lstvwFileDaCopiare_Enter(object sender, EventArgs e)
         {
             lstvwFileDaCopiare.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-        }
-
-        private void txtDiscoVecchio_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtEdit.Text = txtDiscoVecchio.Text;
-        }
-
-        private void txtDiscoNuovo_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtEdit.Text = txtDiscoNuovo.Text;
         }
 
         private void txtDiscoVecchio_Leave(object sender, EventArgs e)
@@ -1175,6 +1376,62 @@ namespace LaunchAll
             {
                 trwCartelleDaCreare.EndUpdate();
             }
+        }
+
+        private void btnCercaNodo_Click(object sender, EventArgs e)
+        {
+            CercaNodoSuccessivo();
+        }
+
+        private void txtCercaNodo_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Invio nella casella equivale a premere "Cerca"
+            if (e.KeyCode != Keys.Enter)
+                return;
+            e.SuppressKeyPress = true;
+            CercaNodoSuccessivo();
+        }
+
+        /// <summary>
+        /// Cerca il testo di txtCercaNodo nei nodi dell'albero, a partire dal nodo
+        /// successivo a quello selezionato se la ricerca è la stessa della volta precedente,
+        /// altrimenti dall'inizio. Se non trova più nulla avvisa e la ricerca successiva riparte dall'inizio.
+        /// </summary>
+        private void CercaNodoSuccessivo()
+        {
+            string testoCercato = txtCercaNodo.Text.Trim();
+            if (testoCercato == "")
+                return;
+
+            List<TreeNode> nodi = new List<TreeNode>();
+            foreach (TreeNode radice in trwCartelleDaCreare.Nodes)
+                AccodaNodiInOrdine(radice, nodi);
+
+            bool continuaRicerca = string.Equals(testoCercato, ultimaRicercaNodi, StringComparison.OrdinalIgnoreCase);
+            int inizio = continuaRicerca && trwCartelleDaCreare.SelectedNode != null
+                ? nodi.IndexOf(trwCartelleDaCreare.SelectedNode) + 1
+                : 0;
+
+            for (int i = inizio; i < nodi.Count; i++)
+            {
+                if (nodi[i].Text.Contains(testoCercato, StringComparison.OrdinalIgnoreCase))
+                {
+                    ultimaRicercaNodi = testoCercato;
+                    trwCartelleDaCreare.SelectedNode = nodi[i];
+                    nodi[i].EnsureVisible();
+                    return;
+                }
+            }
+
+            ultimaRicercaNodi = "";
+            MessageBox.Show("Non trovata", "Ricerca nodi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private static void AccodaNodiInOrdine(TreeNode nodo, List<TreeNode> nodi)
+        {
+            nodi.Add(nodo);
+            foreach (TreeNode figlio in nodo.Nodes)
+                AccodaNodiInOrdine(figlio, nodi);
         }
 
         private void btnOrdina_Click(object sender, EventArgs e)

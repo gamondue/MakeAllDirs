@@ -43,7 +43,7 @@
             folderBrowserDialog = new FolderBrowserDialog();
             btnCartellaCopia = new Button();
             opfilScelta = new OpenFileDialog();
-            txtEdit = new TextBox();
+            txtPathDestinazione = new TextBox();
             btnPiuInizio = new Button();
             btnCopia = new Button();
             btnMenoMeno = new Button();
@@ -76,10 +76,14 @@
             btnDeCheckAll = new Button();
             btnCheckAll = new Button();
             btnCartellaPerCopiare = new Button();
+            btnApplicaDestinazione = new Button();
             btnCopiaStruttura = new Button();
             txtNuova = new TextBox();
             label5 = new Label();
             label1 = new Label();
+            lblCercaNodo = new Label();
+            txtCercaNodo = new TextBox();
+            btnCercaNodo = new Button();
             trwCartelleDaCreare = new TreeView();
             btnDisabilitaCreare = new Button();
             btnAbilitaCreare = new Button();
@@ -91,6 +95,8 @@
             btnCambiaDisco = new Button();
             txtDiscoNuovo = new TextBox();
             grpFileConfigurazione = new GroupBox();
+            label11 = new Label();
+            btnCartellaOutDefault = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -104,17 +110,17 @@
             label2.Location = new Point(7, 122);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(244, 15);
+            label2.Size = new Size(183, 15);
             label2.TabIndex = 2;
-            label2.Text = "Cartella di partenza in cui creare cartelle e file";
+            label2.Text = "Cartella in cui creare cartelle e file";
             // 
             // txtRootDir
             // 
             txtRootDir.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtRootDir.Location = new Point(252, 118);
+            txtRootDir.Location = new Point(198, 118);
             txtRootDir.Margin = new Padding(4);
             txtRootDir.Name = "txtRootDir";
-            txtRootDir.Size = new Size(697, 23);
+            txtRootDir.Size = new Size(771, 23);
             txtRootDir.TabIndex = 2;
             txtRootDir.MouseDoubleClick += txtRootDir_MouseDoubleClick;
             // 
@@ -123,10 +129,10 @@
             btnCreaECopia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCreaECopia.BackColor = Color.FromArgb(0, 192, 0);
             btnCreaECopia.ForeColor = Color.White;
-            btnCreaECopia.Location = new Point(1012, 33);
+            btnCreaECopia.Location = new Point(1032, 22);
             btnCreaECopia.Margin = new Padding(4);
             btnCreaECopia.Name = "btnCreaECopia";
-            btnCreaECopia.Size = new Size(91, 32);
+            btnCreaECopia.Size = new Size(92, 32);
             btnCreaECopia.TabIndex = 5;
             btnCreaECopia.Text = "Crea e copia";
             btnCreaECopia.UseVisualStyleBackColor = false;
@@ -138,7 +144,7 @@
             txtCartellaCopia.Location = new Point(158, 150);
             txtCartellaCopia.Margin = new Padding(4);
             txtCartellaCopia.Name = "txtCartellaCopia";
-            txtCartellaCopia.Size = new Size(898, 23);
+            txtCartellaCopia.Size = new Size(918, 23);
             txtCartellaCopia.TabIndex = 3;
             txtCartellaCopia.MouseDoubleClick += txtCartellaCopia_MouseDoubleClick;
             // 
@@ -179,7 +185,7 @@
             // btnCreaCartelle
             // 
             btnCreaCartelle.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCreaCartelle.Location = new Point(383, 347);
+            btnCreaCartelle.Location = new Point(451, 347);
             btnCreaCartelle.Margin = new Padding(4);
             btnCreaCartelle.Name = "btnCreaCartelle";
             btnCreaCartelle.Size = new Size(88, 24);
@@ -215,7 +221,7 @@
             // btnCartellaRoot
             // 
             btnCartellaRoot.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCartellaRoot.Location = new Point(1058, 117);
+            btnCartellaRoot.Location = new Point(1078, 117);
             btnCartellaRoot.Margin = new Padding(4);
             btnCartellaRoot.Name = "btnCartellaRoot";
             btnCartellaRoot.Size = new Size(42, 25);
@@ -227,7 +233,7 @@
             // btnCartellaCopia
             // 
             btnCartellaCopia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCartellaCopia.Location = new Point(1058, 149);
+            btnCartellaCopia.Location = new Point(1078, 149);
             btnCartellaCopia.Margin = new Padding(4);
             btnCartellaCopia.Name = "btnCartellaCopia";
             btnCartellaCopia.Size = new Size(42, 25);
@@ -240,16 +246,17 @@
             // 
             opfilScelta.FileName = "da_creare.mall";
             // 
-            // txtEdit
+            // txtPathDestinazione
             // 
-            txtEdit.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtEdit.Location = new Point(351, 184);
-            txtEdit.Margin = new Padding(4);
-            txtEdit.Name = "txtEdit";
-            txtEdit.ReadOnly = true;
-            txtEdit.Size = new Size(750, 23);
-            txtEdit.TabIndex = 52;
-            txtEdit.MouseDoubleClick += txtEdit_MouseDoubleClick;
+            txtPathDestinazione.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtPathDestinazione.Location = new Point(476, 182);
+            txtPathDestinazione.Margin = new Padding(4);
+            txtPathDestinazione.Name = "txtPathDestinazione";
+            txtPathDestinazione.PlaceholderText = "(stessa cartella dell'origine)";
+            txtPathDestinazione.ReadOnly = true;
+            txtPathDestinazione.Size = new Size(565, 23);
+            txtPathDestinazione.TabIndex = 52;
+            txtPathDestinazione.MouseDoubleClick += txtEdit_MouseDoubleClick;
             // 
             // btnPiuInizio
             // 
@@ -266,7 +273,7 @@
             // btnCopia
             // 
             btnCopia.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCopia.Location = new Point(521, 347);
+            btnCopia.Location = new Point(473, 347);
             btnCopia.Margin = new Padding(4);
             btnCopia.Name = "btnCopia";
             btnCopia.Size = new Size(99, 24);
@@ -304,7 +311,7 @@
             btnLaunchAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnLaunchAll.BackColor = Color.FromArgb(192, 0, 0);
             btnLaunchAll.ForeColor = Color.White;
-            btnLaunchAll.Location = new Point(918, 33);
+            btnLaunchAll.Location = new Point(1033, 62);
             btnLaunchAll.Margin = new Padding(4);
             btnLaunchAll.Name = "btnLaunchAll";
             btnLaunchAll.Size = new Size(91, 32);
@@ -409,7 +416,7 @@
             txtFileConfigurazione.Location = new Point(9, 59);
             txtFileConfigurazione.Margin = new Padding(4);
             txtFileConfigurazione.Name = "txtFileConfigurazione";
-            txtFileConfigurazione.Size = new Size(873, 23);
+            txtFileConfigurazione.Size = new Size(996, 23);
             txtFileConfigurazione.TabIndex = 1;
             txtFileConfigurazione.TextChanged += txtFileConfigurazione_TextChanged;
             // 
@@ -446,6 +453,7 @@
             splitContainer1.Panel1.Controls.Add(btnDeCheckAll);
             splitContainer1.Panel1.Controls.Add(btnCheckAll);
             splitContainer1.Panel1.Controls.Add(btnCartellaPerCopiare);
+            splitContainer1.Panel1.Controls.Add(btnApplicaDestinazione);
             // 
             // splitContainer1.Panel2
             // 
@@ -454,6 +462,9 @@
             splitContainer1.Panel2.Controls.Add(txtNuova);
             splitContainer1.Panel2.Controls.Add(label5);
             splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(lblCercaNodo);
+            splitContainer1.Panel2.Controls.Add(txtCercaNodo);
+            splitContainer1.Panel2.Controls.Add(btnCercaNodo);
             splitContainer1.Panel2.Controls.Add(trwCartelleDaCreare);
             splitContainer1.Panel2.Controls.Add(btnPiuInizio);
             splitContainer1.Panel2.Controls.Add(btnPiuAlbero);
@@ -463,8 +474,8 @@
             splitContainer1.Panel2.Controls.Add(btnDisabilitaCreare);
             splitContainer1.Panel2.Controls.Add(btnAbilitaCreare);
             splitContainer1.Panel2.Controls.Add(btnOrdina);
-            splitContainer1.Size = new Size(1105, 388);
-            splitContainer1.SplitterDistance = 622;
+            splitContainer1.Size = new Size(1125, 388);
+            splitContainer1.SplitterDistance = 574;
             splitContainer1.TabIndex = 74;
             // 
             // txtStringa2Da
@@ -483,7 +494,7 @@
             txtStringa2A.Location = new Point(340, 317);
             txtStringa2A.Margin = new Padding(4);
             txtStringa2A.Name = "txtStringa2A";
-            txtStringa2A.Size = new Size(280, 23);
+            txtStringa2A.Size = new Size(232, 23);
             txtStringa2A.TabIndex = 9;
             // 
             // btnCheckOff
@@ -548,7 +559,7 @@
             txtStringaA.Location = new Point(340, 290);
             txtStringaA.Margin = new Padding(4);
             txtStringaA.Name = "txtStringaA";
-            txtStringaA.Size = new Size(280, 23);
+            txtStringaA.Size = new Size(232, 23);
             txtStringaA.TabIndex = 7;
             // 
             // lstvwFileDaCopiare
@@ -560,11 +571,11 @@
             lstvwFileDaCopiare.Location = new Point(0, 19);
             lstvwFileDaCopiare.Margin = new Padding(4);
             lstvwFileDaCopiare.Name = "lstvwFileDaCopiare";
-            lstvwFileDaCopiare.Size = new Size(622, 248);
+            lstvwFileDaCopiare.Size = new Size(574, 248);
             lstvwFileDaCopiare.TabIndex = 56;
             lstvwFileDaCopiare.UseCompatibleStateImageBehavior = false;
             lstvwFileDaCopiare.View = View.Details;
-            lstvwFileDaCopiare.SelectedIndexChanged += lstvwFileDaCopiare_SelectedIndexChanged;
+            lstvwFileDaCopiare.ColumnClick += lstvwFileDaCopiare_ColumnClick;
             lstvwFileDaCopiare.DoubleClick += lstvwFileDaCopiare_DoubleClick;
             lstvwFileDaCopiare.Enter += lstvwFileDaCopiare_Enter;
             // 
@@ -591,7 +602,7 @@
             // btnDeCheckAll
             // 
             btnDeCheckAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnDeCheckAll.Location = new Point(275, 347);
+            btnDeCheckAll.Location = new Point(227, 347);
             btnDeCheckAll.Margin = new Padding(4);
             btnDeCheckAll.Name = "btnDeCheckAll";
             btnDeCheckAll.Size = new Size(69, 24);
@@ -603,7 +614,7 @@
             // btnCheckAll
             // 
             btnCheckAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCheckAll.Location = new Point(347, 347);
+            btnCheckAll.Location = new Point(299, 347);
             btnCheckAll.Margin = new Padding(4);
             btnCheckAll.Name = "btnCheckAll";
             btnCheckAll.Size = new Size(69, 24);
@@ -615,7 +626,7 @@
             // btnCartellaPerCopiare
             // 
             btnCartellaPerCopiare.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCartellaPerCopiare.Location = new Point(419, 347);
+            btnCartellaPerCopiare.Location = new Point(371, 347);
             btnCartellaPerCopiare.Margin = new Padding(4);
             btnCartellaPerCopiare.Name = "btnCartellaPerCopiare";
             btnCartellaPerCopiare.Size = new Size(99, 24);
@@ -623,6 +634,18 @@
             btnCartellaPerCopiare.Text = "Scegli cartella";
             btnCartellaPerCopiare.UseVisualStyleBackColor = true;
             btnCartellaPerCopiare.Click += btnCartellaPerCopiare_Click;
+            // 
+            // btnApplicaDestinazione
+            // 
+            btnApplicaDestinazione.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnApplicaDestinazione.Location = new Point(148, 347);
+            btnApplicaDestinazione.Margin = new Padding(4);
+            btnApplicaDestinazione.Name = "btnApplicaDestinazione";
+            btnApplicaDestinazione.Size = new Size(76, 24);
+            btnApplicaDestinazione.TabIndex = 88;
+            btnApplicaDestinazione.Text = "Applica";
+            btnApplicaDestinazione.UseVisualStyleBackColor = true;
+            btnApplicaDestinazione.Click += btnApplicaDestinazione_Click;
             // 
             // btnCopiaStruttura
             // 
@@ -642,7 +665,7 @@
             txtNuova.Location = new Point(3, 317);
             txtNuova.Margin = new Padding(4);
             txtNuova.Name = "txtNuova";
-            txtNuova.Size = new Size(465, 23);
+            txtNuova.Size = new Size(533, 23);
             txtNuova.TabIndex = 10;
             // 
             // label5
@@ -666,6 +689,40 @@
             label1.TabIndex = 3;
             label1.Text = "Cartelle da creare";
             // 
+            // lblCercaNodo
+            // 
+            lblCercaNodo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCercaNodo.AutoSize = true;
+            lblCercaNodo.Location = new Point(240, 5);
+            lblCercaNodo.Margin = new Padding(4, 0, 4, 0);
+            lblCercaNodo.Name = "lblCercaNodo";
+            lblCercaNodo.Size = new Size(72, 15);
+            lblCercaNodo.TabIndex = 84;
+            lblCercaNodo.Text = "Ricerca nodi";
+            // 
+            // txtCercaNodo
+            // 
+            txtCercaNodo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtCercaNodo.Location = new Point(316, 1);
+            txtCercaNodo.Margin = new Padding(4);
+            txtCercaNodo.MaxLength = 20;
+            txtCercaNodo.Name = "txtCercaNodo";
+            txtCercaNodo.Size = new Size(140, 23);
+            txtCercaNodo.TabIndex = 85;
+            txtCercaNodo.KeyDown += txtCercaNodo_KeyDown;
+            // 
+            // btnCercaNodo
+            // 
+            btnCercaNodo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCercaNodo.Location = new Point(462, 0);
+            btnCercaNodo.Margin = new Padding(4);
+            btnCercaNodo.Name = "btnCercaNodo";
+            btnCercaNodo.Size = new Size(75, 24);
+            btnCercaNodo.TabIndex = 86;
+            btnCercaNodo.Text = "Cerca";
+            btnCercaNodo.UseVisualStyleBackColor = true;
+            btnCercaNodo.Click += btnCercaNodo_Click;
+            // 
             // trwCartelleDaCreare
             // 
             trwCartelleDaCreare.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -673,12 +730,12 @@
             trwCartelleDaCreare.CheckBoxes = true;
             trwCartelleDaCreare.HideSelection = false;
             trwCartelleDaCreare.LabelEdit = true;
-            trwCartelleDaCreare.Location = new Point(1, 19);
+            trwCartelleDaCreare.Location = new Point(1, 27);
             trwCartelleDaCreare.Margin = new Padding(4);
             trwCartelleDaCreare.Name = "trwCartelleDaCreare";
-            trwCartelleDaCreare.Size = new Size(468, 276);
+            trwCartelleDaCreare.Size = new Size(536, 268);
             trwCartelleDaCreare.TabIndex = 2;
-            trwCartelleDaCreare.AfterSelect += trwCartelleDaCreare_AfterSelect;
+            trwCartelleDaCreare.AfterCheck += trwCartelleDaCreare_AfterCheck;
             trwCartelleDaCreare.KeyDown += trwCartelleDaCreare_KeyDown;
             // 
             // btnDisabilitaCreare
@@ -720,7 +777,7 @@
             // btnCreaCartella
             // 
             btnCreaCartella.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCreaCartella.Location = new Point(957, 117);
+            btnCreaCartella.Location = new Point(977, 117);
             btnCreaCartella.Margin = new Padding(4);
             btnCreaCartella.Name = "btnCreaCartella";
             btnCreaCartella.Size = new Size(97, 25);
@@ -749,12 +806,11 @@
             // 
             // txtDiscoVecchio
             // 
-            txtDiscoVecchio.Location = new Point(136, 184);
+            txtDiscoVecchio.Location = new Point(136, 183);
             txtDiscoVecchio.Margin = new Padding(4);
             txtDiscoVecchio.Name = "txtDiscoVecchio";
             txtDiscoVecchio.Size = new Size(92, 23);
             txtDiscoVecchio.TabIndex = 4;
-            txtDiscoVecchio.MouseClick += txtDiscoVecchio_MouseClick;
             txtDiscoVecchio.Leave += txtDiscoVecchio_Leave;
             // 
             // btnCambiaDisco
@@ -770,12 +826,11 @@
             // 
             // txtDiscoNuovo
             // 
-            txtDiscoNuovo.Location = new Point(252, 184);
+            txtDiscoNuovo.Location = new Point(252, 183);
             txtDiscoNuovo.Margin = new Padding(4);
             txtDiscoNuovo.Name = "txtDiscoNuovo";
             txtDiscoNuovo.Size = new Size(92, 23);
             txtDiscoNuovo.TabIndex = 5;
-            txtDiscoNuovo.MouseClick += txtDiscoNuovo_MouseClick;
             txtDiscoNuovo.Leave += txtDiscoNuovo_Leave;
             // 
             // grpFileConfigurazione
@@ -792,17 +847,41 @@
             grpFileConfigurazione.Controls.Add(label8);
             grpFileConfigurazione.Location = new Point(13, 10);
             grpFileConfigurazione.Name = "grpFileConfigurazione";
-            grpFileConfigurazione.Size = new Size(898, 101);
+            grpFileConfigurazione.Size = new Size(1012, 101);
             grpFileConfigurazione.TabIndex = 83;
             grpFileConfigurazione.TabStop = false;
             grpFileConfigurazione.Text = "Operazioni sui file di configurazione  del programma";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(347, 187);
+            label11.Margin = new Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(121, 15);
+            label11.TabIndex = 84;
+            label11.Text = "Cartella in cui copiare";
+            // 
+            // btnCartellaOutDefault
+            // 
+            btnCartellaOutDefault.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCartellaOutDefault.Location = new Point(1046, 181);
+            btnCartellaOutDefault.Margin = new Padding(4);
+            btnCartellaOutDefault.Name = "btnCartellaOutDefault";
+            btnCartellaOutDefault.Size = new Size(75, 24);
+            btnCartellaOutDefault.TabIndex = 87;
+            btnCartellaOutDefault.Text = "Stessa";
+            btnCartellaOutDefault.UseVisualStyleBackColor = true;
+            btnCartellaOutDefault.Click += btnCartellaOutDefault_Click;
             // 
             // frmMakeAllDirs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
-            ClientSize = new Size(1110, 595);
+            ClientSize = new Size(1130, 595);
+            Controls.Add(btnCartellaOutDefault);
+            Controls.Add(label11);
             Controls.Add(grpFileConfigurazione);
             Controls.Add(label9);
             Controls.Add(label10);
@@ -813,7 +892,7 @@
             Controls.Add(splitContainer1);
             Controls.Add(btnCreaECopia);
             Controls.Add(btnLaunchAll);
-            Controls.Add(txtEdit);
+            Controls.Add(txtPathDestinazione);
             Controls.Add(btnCartellaCopia);
             Controls.Add(btnCartellaRoot);
             Controls.Add(txtCartellaCopia);
@@ -854,7 +933,7 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.Button btnCartellaCopia;
         private System.Windows.Forms.OpenFileDialog opfilScelta;
-        private System.Windows.Forms.TextBox txtEdit;
+        private System.Windows.Forms.TextBox txtPathDestinazione;
         private System.Windows.Forms.Button btnPiuInizio;
         private System.Windows.Forms.Button btnCopia;
         private System.Windows.Forms.Button btnMenoMeno;
@@ -876,12 +955,16 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btnCartellaPerCopiare;
+        private System.Windows.Forms.Button btnApplicaDestinazione;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TreeView trwCartelleDaCreare;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNuova;
+        private System.Windows.Forms.Label lblCercaNodo;
+        private System.Windows.Forms.TextBox txtCercaNodo;
+        private System.Windows.Forms.Button btnCercaNodo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnDeCheckAll;
         private System.Windows.Forms.Button btnCheckAll;
@@ -902,5 +985,7 @@
         private System.Windows.Forms.Button btnOrdina;
         private Button btnCopiaStruttura;
         private GroupBox grpFileConfigurazione;
+        private Label label11;
+        private Button btnCartellaOutDefault;
     }
-}
+}
