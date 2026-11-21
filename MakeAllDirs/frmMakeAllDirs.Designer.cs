@@ -29,797 +29,812 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMakeAllDirs));
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtRootDir = new System.Windows.Forms.TextBox();
-            this.btnCreaECopia = new System.Windows.Forms.Button();
-            this.txtCartellaCopia = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnMenoCopia = new System.Windows.Forms.Button();
-            this.btnPiuCopia = new System.Windows.Forms.Button();
-            this.btnCreaCartelle = new System.Windows.Forms.Button();
-            this.btnMenoAlbero = new System.Windows.Forms.Button();
-            this.btnPiuAlbero = new System.Windows.Forms.Button();
-            this.btnCartellaRoot = new System.Windows.Forms.Button();
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnCartellaCopia = new System.Windows.Forms.Button();
-            this.opfilScelta = new System.Windows.Forms.OpenFileDialog();
-            this.txtEdit = new System.Windows.Forms.TextBox();
-            this.btnPiuInizio = new System.Windows.Forms.Button();
-            this.btnCopia = new System.Windows.Forms.Button();
-            this.btnMenoMeno = new System.Windows.Forms.Button();
-            this.btnPiuPiu = new System.Windows.Forms.Button();
-            this.btnLaunchAll = new System.Windows.Forms.Button();
-            this.btnNuovo = new System.Windows.Forms.Button();
-            this.btnApriFile = new System.Windows.Forms.Button();
-            this.btnTrovaESostituisci = new System.Windows.Forms.Button();
-            this.btnSalva = new System.Windows.Forms.Button();
-            this.btnApriFileConfigurazione = new System.Windows.Forms.Button();
-            this.btnEsporta = new System.Windows.Forms.Button();
-            this.btnImporta = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtFileConfigurazione = new System.Windows.Forms.TextBox();
-            this.svfilConfigurazione = new System.Windows.Forms.SaveFileDialog();
-            this.opfilConfigurazione = new System.Windows.Forms.OpenFileDialog();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.txtStringa2Da = new System.Windows.Forms.TextBox();
-            this.txtStringa2A = new System.Windows.Forms.TextBox();
-            this.btnCheckOff = new System.Windows.Forms.Button();
-            this.btnCheckOn = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStringaDa = new System.Windows.Forms.TextBox();
-            this.txtStringaA = new System.Windows.Forms.TextBox();
-            this.lstvwFileDaCopiare = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnDeCheckAll = new System.Windows.Forms.Button();
-            this.btnCheckAll = new System.Windows.Forms.Button();
-            this.btnCartellaPerCopiare = new System.Windows.Forms.Button();
-            this.txtNuova = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trwCartelleDaCreare = new System.Windows.Forms.TreeView();
-            this.btnDisabilitaCreare = new System.Windows.Forms.Button();
-            this.btnAbilitaCreare = new System.Windows.Forms.Button();
-            this.btnCreaCartella = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtDiscoVecchio = new System.Windows.Forms.TextBox();
-            this.btnCambiaDisco = new System.Windows.Forms.Button();
-            this.txtDiscoNuovo = new System.Windows.Forms.TextBox();
-            this.btnOrdina = new System.Windows.Forms.Button();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.SuspendLayout();
+            label2 = new Label();
+            txtRootDir = new TextBox();
+            btnCreaECopia = new Button();
+            txtCartellaCopia = new TextBox();
+            label4 = new Label();
+            btnMenoCopia = new Button();
+            btnPiuCopia = new Button();
+            btnCreaCartelle = new Button();
+            btnMenoAlbero = new Button();
+            btnPiuAlbero = new Button();
+            btnCartellaRoot = new Button();
+            folderBrowserDialog = new FolderBrowserDialog();
+            btnCartellaCopia = new Button();
+            opfilScelta = new OpenFileDialog();
+            txtEdit = new TextBox();
+            btnPiuInizio = new Button();
+            btnCopia = new Button();
+            btnMenoMeno = new Button();
+            btnPiuPiu = new Button();
+            btnLaunchAll = new Button();
+            btnNuovo = new Button();
+            btnApriFile = new Button();
+            btnTrovaESostituisci = new Button();
+            btnSalva = new Button();
+            btnApriFileConfigurazione = new Button();
+            btnEsporta = new Button();
+            btnImporta = new Button();
+            label8 = new Label();
+            txtFileConfigurazione = new TextBox();
+            svfilConfigurazione = new SaveFileDialog();
+            opfilConfigurazione = new OpenFileDialog();
+            splitContainer1 = new SplitContainer();
+            txtStringa2Da = new TextBox();
+            txtStringa2A = new TextBox();
+            btnCheckOff = new Button();
+            btnCheckOn = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            txtStringaDa = new TextBox();
+            txtStringaA = new TextBox();
+            lstvwFileDaCopiare = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            label3 = new Label();
+            btnDeCheckAll = new Button();
+            btnCheckAll = new Button();
+            btnCartellaPerCopiare = new Button();
+            btnCopiaStruttura = new Button();
+            txtNuova = new TextBox();
+            label5 = new Label();
+            label1 = new Label();
+            trwCartelleDaCreare = new TreeView();
+            btnDisabilitaCreare = new Button();
+            btnAbilitaCreare = new Button();
+            btnOrdina = new Button();
+            btnCreaCartella = new Button();
+            label9 = new Label();
+            label10 = new Label();
+            txtDiscoVecchio = new TextBox();
+            btnCambiaDisco = new Button();
+            txtDiscoNuovo = new TextBox();
+            grpFileConfigurazione = new GroupBox();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            grpFileConfigurazione.SuspendLayout();
+            SuspendLayout();
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 86);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Cartella di partenza in cui creare cartelle e file";
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 122);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(244, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Cartella di partenza in cui creare cartelle e file";
             // 
             // txtRootDir
             // 
-            this.txtRootDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRootDir.Location = new System.Drawing.Point(8, 106);
-            this.txtRootDir.Margin = new System.Windows.Forms.Padding(4);
-            this.txtRootDir.Name = "txtRootDir";
-            this.txtRootDir.Size = new System.Drawing.Size(1251, 22);
-            this.txtRootDir.TabIndex = 2;
-            this.txtRootDir.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtRootDir_MouseDoubleClick);
+            txtRootDir.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtRootDir.Location = new Point(252, 118);
+            txtRootDir.Margin = new Padding(4);
+            txtRootDir.Name = "txtRootDir";
+            txtRootDir.Size = new Size(697, 23);
+            txtRootDir.TabIndex = 2;
+            txtRootDir.MouseDoubleClick += txtRootDir_MouseDoubleClick;
             // 
             // btnCreaECopia
             // 
-            this.btnCreaECopia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreaECopia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnCreaECopia.ForeColor = System.Drawing.Color.White;
-            this.btnCreaECopia.Location = new System.Drawing.Point(1156, 11);
-            this.btnCreaECopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreaECopia.Name = "btnCreaECopia";
-            this.btnCreaECopia.Size = new System.Drawing.Size(104, 34);
-            this.btnCreaECopia.TabIndex = 5;
-            this.btnCreaECopia.Text = "Crea e copia";
-            this.btnCreaECopia.UseVisualStyleBackColor = false;
-            this.btnCreaECopia.Click += new System.EventHandler(this.btnCreaECopia_Click);
+            btnCreaECopia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCreaECopia.BackColor = Color.FromArgb(0, 192, 0);
+            btnCreaECopia.ForeColor = Color.White;
+            btnCreaECopia.Location = new Point(1012, 33);
+            btnCreaECopia.Margin = new Padding(4);
+            btnCreaECopia.Name = "btnCreaECopia";
+            btnCreaECopia.Size = new Size(91, 32);
+            btnCreaECopia.TabIndex = 5;
+            btnCreaECopia.Text = "Crea e copia";
+            btnCreaECopia.UseVisualStyleBackColor = false;
+            btnCreaECopia.Click += btnCreaECopia_Click;
             // 
             // txtCartellaCopia
             // 
-            this.txtCartellaCopia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCartellaCopia.Location = new System.Drawing.Point(8, 160);
-            this.txtCartellaCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCartellaCopia.Name = "txtCartellaCopia";
-            this.txtCartellaCopia.Size = new System.Drawing.Size(1251, 22);
-            this.txtCartellaCopia.TabIndex = 3;
-            this.txtCartellaCopia.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtCartellaCopia_MouseDoubleClick);
+            txtCartellaCopia.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtCartellaCopia.Location = new Point(158, 150);
+            txtCartellaCopia.Margin = new Padding(4);
+            txtCartellaCopia.Name = "txtCartellaCopia";
+            txtCartellaCopia.Size = new Size(898, 23);
+            txtCartellaCopia.TabIndex = 3;
+            txtCartellaCopia.MouseDoubleClick += txtCartellaCopia_MouseDoubleClick;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 137);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 17);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Cartella da cui copiare file";
+            label4.AutoSize = true;
+            label4.Location = new Point(7, 154);
+            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(143, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Cartella da cui copiare file";
             // 
             // btnMenoCopia
             // 
-            this.btnMenoCopia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMenoCopia.Location = new System.Drawing.Point(36, 302);
-            this.btnMenoCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenoCopia.Name = "btnMenoCopia";
-            this.btnMenoCopia.Size = new System.Drawing.Size(35, 26);
-            this.btnMenoCopia.TabIndex = 45;
-            this.btnMenoCopia.Text = "-";
-            this.btnMenoCopia.UseVisualStyleBackColor = true;
-            this.btnMenoCopia.Click += new System.EventHandler(this.btnMenoCopia_Click);
+            btnMenoCopia.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnMenoCopia.Location = new Point(32, 347);
+            btnMenoCopia.Margin = new Padding(4);
+            btnMenoCopia.Name = "btnMenoCopia";
+            btnMenoCopia.Size = new Size(31, 24);
+            btnMenoCopia.TabIndex = 45;
+            btnMenoCopia.Text = "-";
+            btnMenoCopia.UseVisualStyleBackColor = true;
+            btnMenoCopia.Click += btnMenoCopia_Click;
             // 
             // btnPiuCopia
             // 
-            this.btnPiuCopia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPiuCopia.Location = new System.Drawing.Point(0, 302);
-            this.btnPiuCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPiuCopia.Name = "btnPiuCopia";
-            this.btnPiuCopia.Size = new System.Drawing.Size(32, 26);
-            this.btnPiuCopia.TabIndex = 44;
-            this.btnPiuCopia.Text = "+";
-            this.btnPiuCopia.UseVisualStyleBackColor = true;
-            this.btnPiuCopia.Click += new System.EventHandler(this.btnPiuCopia_Click);
+            btnPiuCopia.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPiuCopia.Location = new Point(0, 347);
+            btnPiuCopia.Margin = new Padding(4);
+            btnPiuCopia.Name = "btnPiuCopia";
+            btnPiuCopia.Size = new Size(28, 24);
+            btnPiuCopia.TabIndex = 44;
+            btnPiuCopia.Text = "+";
+            btnPiuCopia.UseVisualStyleBackColor = true;
+            btnPiuCopia.Click += btnPiuCopia_Click;
             // 
             // btnCreaCartelle
             // 
-            this.btnCreaCartelle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreaCartelle.Location = new System.Drawing.Point(436, 302);
-            this.btnCreaCartelle.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreaCartelle.Name = "btnCreaCartelle";
-            this.btnCreaCartelle.Size = new System.Drawing.Size(100, 26);
-            this.btnCreaCartelle.TabIndex = 49;
-            this.btnCreaCartelle.Text = "Crea cartelle";
-            this.btnCreaCartelle.UseVisualStyleBackColor = true;
-            this.btnCreaCartelle.Click += new System.EventHandler(this.btnCreaCartelle_Click);
+            btnCreaCartelle.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCreaCartelle.Location = new Point(383, 347);
+            btnCreaCartelle.Margin = new Padding(4);
+            btnCreaCartelle.Name = "btnCreaCartelle";
+            btnCreaCartelle.Size = new Size(88, 24);
+            btnCreaCartelle.TabIndex = 49;
+            btnCreaCartelle.Text = "Crea cartelle";
+            btnCreaCartelle.UseVisualStyleBackColor = true;
+            btnCreaCartelle.Click += btnCreaCartelle_Click;
             // 
             // btnMenoAlbero
             // 
-            this.btnMenoAlbero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMenoAlbero.Location = new System.Drawing.Point(95, 302);
-            this.btnMenoAlbero.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenoAlbero.Name = "btnMenoAlbero";
-            this.btnMenoAlbero.Size = new System.Drawing.Size(27, 26);
-            this.btnMenoAlbero.TabIndex = 48;
-            this.btnMenoAlbero.Text = "-";
-            this.btnMenoAlbero.UseVisualStyleBackColor = true;
-            this.btnMenoAlbero.Click += new System.EventHandler(this.btnMenoAlbero_Click);
+            btnMenoAlbero.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnMenoAlbero.Location = new Point(83, 347);
+            btnMenoAlbero.Margin = new Padding(4);
+            btnMenoAlbero.Name = "btnMenoAlbero";
+            btnMenoAlbero.Size = new Size(24, 24);
+            btnMenoAlbero.TabIndex = 48;
+            btnMenoAlbero.Text = "-";
+            btnMenoAlbero.UseVisualStyleBackColor = true;
+            btnMenoAlbero.Click += btnMenoAlbero_Click;
             // 
             // btnPiuAlbero
             // 
-            this.btnPiuAlbero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPiuAlbero.Location = new System.Drawing.Point(67, 302);
-            this.btnPiuAlbero.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPiuAlbero.Name = "btnPiuAlbero";
-            this.btnPiuAlbero.Size = new System.Drawing.Size(27, 26);
-            this.btnPiuAlbero.TabIndex = 47;
-            this.btnPiuAlbero.Text = "+";
-            this.btnPiuAlbero.UseVisualStyleBackColor = true;
-            this.btnPiuAlbero.Click += new System.EventHandler(this.btnPiuAlbero_Click);
+            btnPiuAlbero.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPiuAlbero.Location = new Point(59, 347);
+            btnPiuAlbero.Margin = new Padding(4);
+            btnPiuAlbero.Name = "btnPiuAlbero";
+            btnPiuAlbero.Size = new Size(24, 24);
+            btnPiuAlbero.TabIndex = 47;
+            btnPiuAlbero.Text = "+";
+            btnPiuAlbero.UseVisualStyleBackColor = true;
+            btnPiuAlbero.Click += btnPiuAlbero_Click;
             // 
             // btnCartellaRoot
             // 
-            this.btnCartellaRoot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCartellaRoot.Location = new System.Drawing.Point(1213, 75);
-            this.btnCartellaRoot.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCartellaRoot.Name = "btnCartellaRoot";
-            this.btnCartellaRoot.Size = new System.Drawing.Size(48, 27);
-            this.btnCartellaRoot.TabIndex = 50;
-            this.btnCartellaRoot.Text = "..";
-            this.btnCartellaRoot.UseVisualStyleBackColor = true;
-            this.btnCartellaRoot.Click += new System.EventHandler(this.btnCartellaRoot_Click);
+            btnCartellaRoot.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCartellaRoot.Location = new Point(1058, 117);
+            btnCartellaRoot.Margin = new Padding(4);
+            btnCartellaRoot.Name = "btnCartellaRoot";
+            btnCartellaRoot.Size = new Size(42, 25);
+            btnCartellaRoot.TabIndex = 50;
+            btnCartellaRoot.Text = "..";
+            btnCartellaRoot.UseVisualStyleBackColor = true;
+            btnCartellaRoot.Click += btnCartellaRoot_Click;
             // 
             // btnCartellaCopia
             // 
-            this.btnCartellaCopia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCartellaCopia.Location = new System.Drawing.Point(1213, 130);
-            this.btnCartellaCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCartellaCopia.Name = "btnCartellaCopia";
-            this.btnCartellaCopia.Size = new System.Drawing.Size(48, 27);
-            this.btnCartellaCopia.TabIndex = 51;
-            this.btnCartellaCopia.Text = "..";
-            this.btnCartellaCopia.UseVisualStyleBackColor = true;
-            this.btnCartellaCopia.Click += new System.EventHandler(this.btnCartellaCopia_Click);
+            btnCartellaCopia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCartellaCopia.Location = new Point(1058, 149);
+            btnCartellaCopia.Margin = new Padding(4);
+            btnCartellaCopia.Name = "btnCartellaCopia";
+            btnCartellaCopia.Size = new Size(42, 25);
+            btnCartellaCopia.TabIndex = 51;
+            btnCartellaCopia.Text = "..";
+            btnCartellaCopia.UseVisualStyleBackColor = true;
+            btnCartellaCopia.Click += btnCartellaCopia_Click;
             // 
             // opfilScelta
             // 
-            this.opfilScelta.FileName = "da_creare.mall";
+            opfilScelta.FileName = "da_creare.mall";
             // 
             // txtEdit
             // 
-            this.txtEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEdit.Location = new System.Drawing.Point(401, 196);
-            this.txtEdit.Margin = new System.Windows.Forms.Padding(4);
-            this.txtEdit.Name = "txtEdit";
-            this.txtEdit.ReadOnly = true;
-            this.txtEdit.Size = new System.Drawing.Size(857, 22);
-            this.txtEdit.TabIndex = 52;
-            this.txtEdit.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.txtEdit_MouseDoubleClick);
+            txtEdit.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtEdit.Location = new Point(351, 184);
+            txtEdit.Margin = new Padding(4);
+            txtEdit.Name = "txtEdit";
+            txtEdit.ReadOnly = true;
+            txtEdit.Size = new Size(750, 23);
+            txtEdit.TabIndex = 52;
+            txtEdit.MouseDoubleClick += txtEdit_MouseDoubleClick;
             // 
             // btnPiuInizio
             // 
-            this.btnPiuInizio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPiuInizio.Location = new System.Drawing.Point(1, 302);
-            this.btnPiuInizio.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPiuInizio.Name = "btnPiuInizio";
-            this.btnPiuInizio.Size = new System.Drawing.Size(65, 26);
-            this.btnPiuInizio.TabIndex = 60;
-            this.btnPiuInizio.Text = "+ inizio";
-            this.btnPiuInizio.UseVisualStyleBackColor = true;
-            this.btnPiuInizio.Click += new System.EventHandler(this.button1_Click);
+            btnPiuInizio.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPiuInizio.Location = new Point(1, 347);
+            btnPiuInizio.Margin = new Padding(4);
+            btnPiuInizio.Name = "btnPiuInizio";
+            btnPiuInizio.Size = new Size(57, 24);
+            btnPiuInizio.TabIndex = 60;
+            btnPiuInizio.Text = "+ inizio";
+            btnPiuInizio.UseVisualStyleBackColor = true;
+            btnPiuInizio.Click += button1_Click;
             // 
             // btnCopia
             // 
-            this.btnCopia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCopia.Location = new System.Drawing.Point(596, 302);
-            this.btnCopia.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCopia.Name = "btnCopia";
-            this.btnCopia.Size = new System.Drawing.Size(113, 26);
-            this.btnCopia.TabIndex = 63;
-            this.btnCopia.Text = "Copia files";
-            this.btnCopia.UseVisualStyleBackColor = true;
-            this.btnCopia.Click += new System.EventHandler(this.btnCopia_Click);
+            btnCopia.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCopia.Location = new Point(521, 347);
+            btnCopia.Margin = new Padding(4);
+            btnCopia.Name = "btnCopia";
+            btnCopia.Size = new Size(99, 24);
+            btnCopia.TabIndex = 63;
+            btnCopia.Text = "Copia files";
+            btnCopia.UseVisualStyleBackColor = true;
+            btnCopia.Click += btnCopia_Click;
             // 
             // btnMenoMeno
             // 
-            this.btnMenoMeno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMenoMeno.Location = new System.Drawing.Point(207, 302);
-            this.btnMenoMeno.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMenoMeno.Name = "btnMenoMeno";
-            this.btnMenoMeno.Size = new System.Drawing.Size(32, 26);
-            this.btnMenoMeno.TabIndex = 63;
-            this.btnMenoMeno.Text = "--";
-            this.btnMenoMeno.UseVisualStyleBackColor = true;
-            this.btnMenoMeno.Click += new System.EventHandler(this.btnMenoMeno_Click);
+            btnMenoMeno.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnMenoMeno.Location = new Point(181, 347);
+            btnMenoMeno.Margin = new Padding(4);
+            btnMenoMeno.Name = "btnMenoMeno";
+            btnMenoMeno.Size = new Size(28, 24);
+            btnMenoMeno.TabIndex = 63;
+            btnMenoMeno.Text = "--";
+            btnMenoMeno.UseVisualStyleBackColor = true;
+            btnMenoMeno.Click += btnMenoMeno_Click;
             // 
             // btnPiuPiu
             // 
-            this.btnPiuPiu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPiuPiu.Location = new System.Drawing.Point(174, 302);
-            this.btnPiuPiu.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPiuPiu.Name = "btnPiuPiu";
-            this.btnPiuPiu.Size = new System.Drawing.Size(32, 26);
-            this.btnPiuPiu.TabIndex = 62;
-            this.btnPiuPiu.Text = "++";
-            this.btnPiuPiu.UseVisualStyleBackColor = true;
-            this.btnPiuPiu.Click += new System.EventHandler(this.btnPiuPiu_Click);
+            btnPiuPiu.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnPiuPiu.Location = new Point(152, 347);
+            btnPiuPiu.Margin = new Padding(4);
+            btnPiuPiu.Name = "btnPiuPiu";
+            btnPiuPiu.Size = new Size(28, 24);
+            btnPiuPiu.TabIndex = 62;
+            btnPiuPiu.Text = "++";
+            btnPiuPiu.UseVisualStyleBackColor = true;
+            btnPiuPiu.Click += btnPiuPiu_Click;
             // 
             // btnLaunchAll
             // 
-            this.btnLaunchAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLaunchAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLaunchAll.ForeColor = System.Drawing.Color.White;
-            this.btnLaunchAll.Location = new System.Drawing.Point(1049, 11);
-            this.btnLaunchAll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLaunchAll.Name = "btnLaunchAll";
-            this.btnLaunchAll.Size = new System.Drawing.Size(104, 34);
-            this.btnLaunchAll.TabIndex = 64;
-            this.btnLaunchAll.Text = "LaunchAll";
-            this.btnLaunchAll.UseVisualStyleBackColor = false;
-            this.btnLaunchAll.Visible = false;
-            this.btnLaunchAll.Click += new System.EventHandler(this.btnLaunchAll_Click);
+            btnLaunchAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLaunchAll.BackColor = Color.FromArgb(192, 0, 0);
+            btnLaunchAll.ForeColor = Color.White;
+            btnLaunchAll.Location = new Point(918, 33);
+            btnLaunchAll.Margin = new Padding(4);
+            btnLaunchAll.Name = "btnLaunchAll";
+            btnLaunchAll.Size = new Size(91, 32);
+            btnLaunchAll.TabIndex = 64;
+            btnLaunchAll.Text = "LaunchAll";
+            btnLaunchAll.UseVisualStyleBackColor = false;
+            btnLaunchAll.Visible = false;
+            btnLaunchAll.Click += btnLaunchAll_Click;
             // 
             // btnNuovo
             // 
-            this.btnNuovo.Location = new System.Drawing.Point(581, 11);
-            this.btnNuovo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNuovo.Name = "btnNuovo";
-            this.btnNuovo.Size = new System.Drawing.Size(104, 34);
-            this.btnNuovo.TabIndex = 71;
-            this.btnNuovo.Text = "Nuovo";
-            this.btnNuovo.UseVisualStyleBackColor = true;
-            this.btnNuovo.Click += new System.EventHandler(this.btnNuovo_Click);
+            btnNuovo.Location = new Point(500, 23);
+            btnNuovo.Margin = new Padding(4);
+            btnNuovo.Name = "btnNuovo";
+            btnNuovo.Size = new Size(91, 32);
+            btnNuovo.TabIndex = 71;
+            btnNuovo.Text = "Nuovo";
+            btnNuovo.UseVisualStyleBackColor = true;
+            btnNuovo.Click += btnNuovo_Click;
             // 
             // btnApriFile
             // 
-            this.btnApriFile.Location = new System.Drawing.Point(692, 11);
-            this.btnApriFile.Margin = new System.Windows.Forms.Padding(4);
-            this.btnApriFile.Name = "btnApriFile";
-            this.btnApriFile.Size = new System.Drawing.Size(104, 34);
-            this.btnApriFile.TabIndex = 70;
-            this.btnApriFile.Text = "Apri";
-            this.btnApriFile.UseVisualStyleBackColor = true;
-            this.btnApriFile.Click += new System.EventHandler(this.btnApriFile_Click);
+            btnApriFile.Location = new Point(598, 23);
+            btnApriFile.Margin = new Padding(4);
+            btnApriFile.Name = "btnApriFile";
+            btnApriFile.Size = new Size(91, 32);
+            btnApriFile.TabIndex = 70;
+            btnApriFile.Text = "Apri";
+            btnApriFile.UseVisualStyleBackColor = true;
+            btnApriFile.Click += btnApriFile_Click;
             // 
             // btnTrovaESostituisci
             // 
-            this.btnTrovaESostituisci.Enabled = false;
-            this.btnTrovaESostituisci.Location = new System.Drawing.Point(177, 11);
-            this.btnTrovaESostituisci.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTrovaESostituisci.Name = "btnTrovaESostituisci";
-            this.btnTrovaESostituisci.Size = new System.Drawing.Size(140, 34);
-            this.btnTrovaESostituisci.TabIndex = 69;
-            this.btnTrovaESostituisci.Text = "Trova e sostituisci";
-            this.btnTrovaESostituisci.UseVisualStyleBackColor = true;
-            this.btnTrovaESostituisci.Click += new System.EventHandler(this.btnTrovaESostituisci_Click);
+            btnTrovaESostituisci.Enabled = false;
+            btnTrovaESostituisci.Location = new Point(147, 23);
+            btnTrovaESostituisci.Margin = new Padding(4);
+            btnTrovaESostituisci.Name = "btnTrovaESostituisci";
+            btnTrovaESostituisci.Size = new Size(122, 32);
+            btnTrovaESostituisci.TabIndex = 69;
+            btnTrovaESostituisci.Text = "Trova e sostituisci";
+            btnTrovaESostituisci.UseVisualStyleBackColor = true;
+            btnTrovaESostituisci.Click += btnTrovaESostituisci_Click;
             // 
             // btnSalva
             // 
-            this.btnSalva.Location = new System.Drawing.Point(803, 11);
-            this.btnSalva.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalva.Name = "btnSalva";
-            this.btnSalva.Size = new System.Drawing.Size(104, 34);
-            this.btnSalva.TabIndex = 68;
-            this.btnSalva.Text = "Salva";
-            this.btnSalva.UseVisualStyleBackColor = true;
-            this.btnSalva.Click += new System.EventHandler(this.btnSalva_Click);
+            btnSalva.Location = new Point(695, 23);
+            btnSalva.Margin = new Padding(4);
+            btnSalva.Name = "btnSalva";
+            btnSalva.Size = new Size(91, 32);
+            btnSalva.TabIndex = 68;
+            btnSalva.Text = "Salva";
+            btnSalva.UseVisualStyleBackColor = true;
+            btnSalva.Click += btnSalva_Click;
             // 
             // btnApriFileConfigurazione
             // 
-            this.btnApriFileConfigurazione.Location = new System.Drawing.Point(913, 11);
-            this.btnApriFileConfigurazione.Margin = new System.Windows.Forms.Padding(4);
-            this.btnApriFileConfigurazione.Name = "btnApriFileConfigurazione";
-            this.btnApriFileConfigurazione.Size = new System.Drawing.Size(104, 34);
-            this.btnApriFileConfigurazione.TabIndex = 67;
-            this.btnApriFileConfigurazione.Text = "Scegli file";
-            this.btnApriFileConfigurazione.UseVisualStyleBackColor = true;
-            this.btnApriFileConfigurazione.Click += new System.EventHandler(this.btnApriFileConfigurazione_Click);
+            btnApriFileConfigurazione.Location = new Point(791, 23);
+            btnApriFileConfigurazione.Margin = new Padding(4);
+            btnApriFileConfigurazione.Name = "btnApriFileConfigurazione";
+            btnApriFileConfigurazione.Size = new Size(91, 32);
+            btnApriFileConfigurazione.TabIndex = 67;
+            btnApriFileConfigurazione.Text = "Scegli file";
+            btnApriFileConfigurazione.UseVisualStyleBackColor = true;
+            btnApriFileConfigurazione.Click += btnApriFileConfigurazione_Click;
             // 
             // btnEsporta
             // 
-            this.btnEsporta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEsporta.Location = new System.Drawing.Point(324, 11);
-            this.btnEsporta.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEsporta.Name = "btnEsporta";
-            this.btnEsporta.Size = new System.Drawing.Size(140, 34);
-            this.btnEsporta.TabIndex = 66;
-            this.btnEsporta.Text = "Salva con nome";
-            this.btnEsporta.UseVisualStyleBackColor = true;
-            this.btnEsporta.Click += new System.EventHandler(this.btnEsporta_Click);
+            btnEsporta.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEsporta.Location = new Point(276, 23);
+            btnEsporta.Margin = new Padding(4);
+            btnEsporta.Name = "btnEsporta";
+            btnEsporta.Size = new Size(122, 32);
+            btnEsporta.TabIndex = 66;
+            btnEsporta.Text = "Salva con nome";
+            btnEsporta.UseVisualStyleBackColor = true;
+            btnEsporta.Click += btnEsporta_Click;
             // 
             // btnImporta
             // 
-            this.btnImporta.Location = new System.Drawing.Point(471, 11);
-            this.btnImporta.Margin = new System.Windows.Forms.Padding(4);
-            this.btnImporta.Name = "btnImporta";
-            this.btnImporta.Size = new System.Drawing.Size(104, 34);
-            this.btnImporta.TabIndex = 65;
-            this.btnImporta.Text = "Importa";
-            this.btnImporta.UseVisualStyleBackColor = true;
-            this.btnImporta.Click += new System.EventHandler(this.btnImporta_Click);
+            btnImporta.Location = new Point(404, 23);
+            btnImporta.Margin = new Padding(4);
+            btnImporta.Name = "btnImporta";
+            btnImporta.Size = new Size(91, 32);
+            btnImporta.TabIndex = 65;
+            btnImporta.Text = "Importa";
+            btnImporta.UseVisualStyleBackColor = true;
+            btnImporta.Click += btnImporta_Click;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 30);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 17);
-            this.label8.TabIndex = 73;
-            this.label8.Text = "File di configurazione";
+            label8.AutoSize = true;
+            label8.Location = new Point(9, 41);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(120, 15);
+            label8.TabIndex = 73;
+            label8.Text = "File di configurazione";
             // 
             // txtFileConfigurazione
             // 
-            this.txtFileConfigurazione.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFileConfigurazione.Location = new System.Drawing.Point(8, 49);
-            this.txtFileConfigurazione.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFileConfigurazione.Name = "txtFileConfigurazione";
-            this.txtFileConfigurazione.Size = new System.Drawing.Size(1251, 22);
-            this.txtFileConfigurazione.TabIndex = 1;
-            this.txtFileConfigurazione.TextChanged += new System.EventHandler(this.txtFileConfigurazione_TextChanged);
+            txtFileConfigurazione.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtFileConfigurazione.Location = new Point(9, 59);
+            txtFileConfigurazione.Margin = new Padding(4);
+            txtFileConfigurazione.Name = "txtFileConfigurazione";
+            txtFileConfigurazione.Size = new Size(873, 23);
+            txtFileConfigurazione.TabIndex = 1;
+            txtFileConfigurazione.TextChanged += txtFileConfigurazione_TextChanged;
             // 
             // svfilConfigurazione
             // 
-            this.svfilConfigurazione.FileName = "da_creare.mall";
+            svfilConfigurazione.FileName = "da_creare.mall";
             // 
             // opfilConfigurazione
             // 
-            this.opfilConfigurazione.FileName = "da_creare.mall";
+            opfilConfigurazione.FileName = "da_creare.mall";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(8, 229);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
+            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainer1.Location = new Point(7, 215);
+            splitContainer1.Margin = new Padding(4);
+            splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnCopia);
-            this.splitContainer1.Panel1.Controls.Add(this.txtStringa2Da);
-            this.splitContainer1.Panel1.Controls.Add(this.txtStringa2A);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCheckOff);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCheckOn);
-            this.splitContainer1.Panel1.Controls.Add(this.label7);
-            this.splitContainer1.Panel1.Controls.Add(this.label6);
-            this.splitContainer1.Panel1.Controls.Add(this.txtStringaDa);
-            this.splitContainer1.Panel1.Controls.Add(this.txtStringaA);
-            this.splitContainer1.Panel1.Controls.Add(this.lstvwFileDaCopiare);
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.btnPiuCopia);
-            this.splitContainer1.Panel1.Controls.Add(this.btnMenoCopia);
-            this.splitContainer1.Panel1.Controls.Add(this.btnDeCheckAll);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCheckAll);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCartellaPerCopiare);
+            splitContainer1.Panel1.Controls.Add(btnCopia);
+            splitContainer1.Panel1.Controls.Add(txtStringa2Da);
+            splitContainer1.Panel1.Controls.Add(txtStringa2A);
+            splitContainer1.Panel1.Controls.Add(btnCheckOff);
+            splitContainer1.Panel1.Controls.Add(btnCheckOn);
+            splitContainer1.Panel1.Controls.Add(label7);
+            splitContainer1.Panel1.Controls.Add(label6);
+            splitContainer1.Panel1.Controls.Add(txtStringaDa);
+            splitContainer1.Panel1.Controls.Add(txtStringaA);
+            splitContainer1.Panel1.Controls.Add(lstvwFileDaCopiare);
+            splitContainer1.Panel1.Controls.Add(label3);
+            splitContainer1.Panel1.Controls.Add(btnPiuCopia);
+            splitContainer1.Panel1.Controls.Add(btnMenoCopia);
+            splitContainer1.Panel1.Controls.Add(btnDeCheckAll);
+            splitContainer1.Panel1.Controls.Add(btnCheckAll);
+            splitContainer1.Panel1.Controls.Add(btnCartellaPerCopiare);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btnCreaCartelle);
-            this.splitContainer1.Panel2.Controls.Add(this.txtNuova);
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.trwCartelleDaCreare);
-            this.splitContainer1.Panel2.Controls.Add(this.btnPiuInizio);
-            this.splitContainer1.Panel2.Controls.Add(this.btnPiuAlbero);
-            this.splitContainer1.Panel2.Controls.Add(this.btnMenoAlbero);
-            this.splitContainer1.Panel2.Controls.Add(this.btnPiuPiu);
-            this.splitContainer1.Panel2.Controls.Add(this.btnMenoMeno);
-            this.splitContainer1.Panel2.Controls.Add(this.btnDisabilitaCreare);
-            this.splitContainer1.Panel2.Controls.Add(this.btnAbilitaCreare);
-            this.splitContainer1.Panel2.Controls.Add(this.btnOrdina);
-            this.splitContainer1.Size = new System.Drawing.Size(1263, 346);
-            this.splitContainer1.SplitterDistance = 712;
-            this.splitContainer1.SplitterWidth = 5;
-            this.splitContainer1.TabIndex = 74;
+            splitContainer1.Panel2.Controls.Add(btnCopiaStruttura);
+            splitContainer1.Panel2.Controls.Add(btnCreaCartelle);
+            splitContainer1.Panel2.Controls.Add(txtNuova);
+            splitContainer1.Panel2.Controls.Add(label5);
+            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(trwCartelleDaCreare);
+            splitContainer1.Panel2.Controls.Add(btnPiuInizio);
+            splitContainer1.Panel2.Controls.Add(btnPiuAlbero);
+            splitContainer1.Panel2.Controls.Add(btnMenoAlbero);
+            splitContainer1.Panel2.Controls.Add(btnPiuPiu);
+            splitContainer1.Panel2.Controls.Add(btnMenoMeno);
+            splitContainer1.Panel2.Controls.Add(btnDisabilitaCreare);
+            splitContainer1.Panel2.Controls.Add(btnAbilitaCreare);
+            splitContainer1.Panel2.Controls.Add(btnOrdina);
+            splitContainer1.Size = new Size(1105, 388);
+            splitContainer1.SplitterDistance = 622;
+            splitContainer1.TabIndex = 74;
             // 
             // txtStringa2Da
             // 
-            this.txtStringa2Da.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtStringa2Da.Location = new System.Drawing.Point(0, 270);
-            this.txtStringa2Da.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStringa2Da.Name = "txtStringa2Da";
-            this.txtStringa2Da.Size = new System.Drawing.Size(380, 22);
-            this.txtStringa2Da.TabIndex = 8;
-            this.txtStringa2Da.Text = "YYYY";
+            txtStringa2Da.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtStringa2Da.Location = new Point(0, 317);
+            txtStringa2Da.Margin = new Padding(4);
+            txtStringa2Da.Name = "txtStringa2Da";
+            txtStringa2Da.Size = new Size(333, 23);
+            txtStringa2Da.TabIndex = 8;
+            txtStringa2Da.Text = "YYYY";
             // 
             // txtStringa2A
             // 
-            this.txtStringa2A.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStringa2A.Location = new System.Drawing.Point(389, 270);
-            this.txtStringa2A.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStringa2A.Name = "txtStringa2A";
-            this.txtStringa2A.Size = new System.Drawing.Size(321, 22);
-            this.txtStringa2A.TabIndex = 9;
+            txtStringa2A.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtStringa2A.Location = new Point(340, 317);
+            txtStringa2A.Margin = new Padding(4);
+            txtStringa2A.Name = "txtStringa2A";
+            txtStringa2A.Size = new Size(280, 23);
+            txtStringa2A.TabIndex = 9;
             // 
             // btnCheckOff
             // 
-            this.btnCheckOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheckOff.Location = new System.Drawing.Point(75, 302);
-            this.btnCheckOff.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCheckOff.Name = "btnCheckOff";
-            this.btnCheckOff.Size = new System.Drawing.Size(43, 26);
-            this.btnCheckOff.TabIndex = 66;
-            this.btnCheckOff.Text = "off";
-            this.btnCheckOff.UseVisualStyleBackColor = true;
-            this.btnCheckOff.Click += new System.EventHandler(this.btnCheckOff_Click);
+            btnCheckOff.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCheckOff.Location = new Point(66, 347);
+            btnCheckOff.Margin = new Padding(4);
+            btnCheckOff.Name = "btnCheckOff";
+            btnCheckOff.Size = new Size(38, 24);
+            btnCheckOff.TabIndex = 66;
+            btnCheckOff.Text = "off";
+            btnCheckOff.UseVisualStyleBackColor = true;
+            btnCheckOff.Click += btnCheckOff_Click;
             // 
             // btnCheckOn
             // 
-            this.btnCheckOn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCheckOn.Location = new System.Drawing.Point(122, 302);
-            this.btnCheckOn.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCheckOn.Name = "btnCheckOn";
-            this.btnCheckOn.Size = new System.Drawing.Size(43, 26);
-            this.btnCheckOn.TabIndex = 67;
-            this.btnCheckOn.Text = "on";
-            this.btnCheckOn.UseVisualStyleBackColor = true;
-            this.btnCheckOn.Click += new System.EventHandler(this.btnCheckOn_Click);
+            btnCheckOn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCheckOn.Location = new Point(107, 347);
+            btnCheckOn.Margin = new Padding(4);
+            btnCheckOn.Name = "btnCheckOn";
+            btnCheckOn.Size = new Size(38, 24);
+            btnCheckOn.TabIndex = 67;
+            btnCheckOn.Text = "on";
+            btnCheckOn.UseVisualStyleBackColor = true;
+            btnCheckOn.Click += btnCheckOn_Click;
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 222);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 17);
-            this.label7.TabIndex = 63;
-            this.label7.Text = "Stringa A: ";
+            label7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label7.AutoSize = true;
+            label7.Location = new Point(340, 272);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(61, 15);
+            label7.TabIndex = 63;
+            label7.Text = "Stringa A: ";
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 222);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(272, 17);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "Sostituzione durante la copia: stringa Da: ";
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.Location = new Point(0, 272);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(224, 15);
+            label6.TabIndex = 62;
+            label6.Text = "Sostituzione durante la copia: stringa Da: ";
             // 
             // txtStringaDa
             // 
-            this.txtStringaDa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtStringaDa.Location = new System.Drawing.Point(0, 241);
-            this.txtStringaDa.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStringaDa.Name = "txtStringaDa";
-            this.txtStringaDa.Size = new System.Drawing.Size(380, 22);
-            this.txtStringaDa.TabIndex = 6;
-            this.txtStringaDa.Text = "XXXX";
+            txtStringaDa.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtStringaDa.Location = new Point(0, 290);
+            txtStringaDa.Margin = new Padding(4);
+            txtStringaDa.Name = "txtStringaDa";
+            txtStringaDa.Size = new Size(333, 23);
+            txtStringaDa.TabIndex = 6;
+            txtStringaDa.Text = "XXXX";
             // 
             // txtStringaA
             // 
-            this.txtStringaA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStringaA.Location = new System.Drawing.Point(389, 241);
-            this.txtStringaA.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStringaA.Name = "txtStringaA";
-            this.txtStringaA.Size = new System.Drawing.Size(321, 22);
-            this.txtStringaA.TabIndex = 7;
+            txtStringaA.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtStringaA.Location = new Point(340, 290);
+            txtStringaA.Margin = new Padding(4);
+            txtStringaA.Name = "txtStringaA";
+            txtStringaA.Size = new Size(280, 23);
+            txtStringaA.TabIndex = 7;
             // 
             // lstvwFileDaCopiare
             // 
-            this.lstvwFileDaCopiare.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstvwFileDaCopiare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.lstvwFileDaCopiare.CheckBoxes = true;
-            this.lstvwFileDaCopiare.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.lstvwFileDaCopiare.Location = new System.Drawing.Point(0, 20);
-            this.lstvwFileDaCopiare.Margin = new System.Windows.Forms.Padding(4);
-            this.lstvwFileDaCopiare.Name = "lstvwFileDaCopiare";
-            this.lstvwFileDaCopiare.Size = new System.Drawing.Size(711, 196);
-            this.lstvwFileDaCopiare.TabIndex = 56;
-            this.lstvwFileDaCopiare.UseCompatibleStateImageBehavior = false;
-            this.lstvwFileDaCopiare.View = System.Windows.Forms.View.Details;
-            this.lstvwFileDaCopiare.SelectedIndexChanged += new System.EventHandler(this.lstvwFileDaCopiare_SelectedIndexChanged);
-            this.lstvwFileDaCopiare.DoubleClick += new System.EventHandler(this.lstvwFileDaCopiare_DoubleClick);
-            this.lstvwFileDaCopiare.Enter += new System.EventHandler(this.lstvwFileDaCopiare_Enter);
+            lstvwFileDaCopiare.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lstvwFileDaCopiare.BackColor = Color.FromArgb(200, 255, 200);
+            lstvwFileDaCopiare.CheckBoxes = true;
+            lstvwFileDaCopiare.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            lstvwFileDaCopiare.Location = new Point(0, 19);
+            lstvwFileDaCopiare.Margin = new Padding(4);
+            lstvwFileDaCopiare.Name = "lstvwFileDaCopiare";
+            lstvwFileDaCopiare.Size = new Size(622, 248);
+            lstvwFileDaCopiare.TabIndex = 56;
+            lstvwFileDaCopiare.UseCompatibleStateImageBehavior = false;
+            lstvwFileDaCopiare.View = View.Details;
+            lstvwFileDaCopiare.SelectedIndexChanged += lstvwFileDaCopiare_SelectedIndexChanged;
+            lstvwFileDaCopiare.DoubleClick += lstvwFileDaCopiare_DoubleClick;
+            lstvwFileDaCopiare.Enter += lstvwFileDaCopiare_Enter;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "File da copiare";
-            this.columnHeader1.Width = 299;
+            columnHeader1.Text = "File da copiare";
+            columnHeader1.Width = 299;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Cartella ove copiare";
-            this.columnHeader2.Width = 253;
+            columnHeader2.Text = "Cartella ove copiare";
+            columnHeader2.Width = 253;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-4, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 17);
-            this.label3.TabIndex = 54;
-            this.label3.Text = "File da copiare";
+            label3.AutoSize = true;
+            label3.Location = new Point(-4, 0);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(83, 15);
+            label3.TabIndex = 54;
+            label3.Text = "File da copiare";
             // 
             // btnDeCheckAll
             // 
-            this.btnDeCheckAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeCheckAll.Location = new System.Drawing.Point(316, 302);
-            this.btnDeCheckAll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeCheckAll.Name = "btnDeCheckAll";
-            this.btnDeCheckAll.Size = new System.Drawing.Size(79, 26);
-            this.btnDeCheckAll.TabIndex = 65;
-            this.btnDeCheckAll.Text = "Disabilita";
-            this.btnDeCheckAll.UseVisualStyleBackColor = true;
-            this.btnDeCheckAll.Click += new System.EventHandler(this.btnDeCheckAll_Click);
+            btnDeCheckAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDeCheckAll.Location = new Point(275, 347);
+            btnDeCheckAll.Margin = new Padding(4);
+            btnDeCheckAll.Name = "btnDeCheckAll";
+            btnDeCheckAll.Size = new Size(69, 24);
+            btnDeCheckAll.TabIndex = 65;
+            btnDeCheckAll.Text = "Disabilita";
+            btnDeCheckAll.UseVisualStyleBackColor = true;
+            btnDeCheckAll.Click += btnDeCheckAll_Click;
             // 
             // btnCheckAll
             // 
-            this.btnCheckAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCheckAll.Location = new System.Drawing.Point(398, 302);
-            this.btnCheckAll.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCheckAll.Name = "btnCheckAll";
-            this.btnCheckAll.Size = new System.Drawing.Size(79, 26);
-            this.btnCheckAll.TabIndex = 64;
-            this.btnCheckAll.Text = "Abilita";
-            this.btnCheckAll.UseVisualStyleBackColor = true;
-            this.btnCheckAll.Click += new System.EventHandler(this.btnCheckAll_Click);
+            btnCheckAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCheckAll.Location = new Point(347, 347);
+            btnCheckAll.Margin = new Padding(4);
+            btnCheckAll.Name = "btnCheckAll";
+            btnCheckAll.Size = new Size(69, 24);
+            btnCheckAll.TabIndex = 64;
+            btnCheckAll.Text = "Abilita";
+            btnCheckAll.UseVisualStyleBackColor = true;
+            btnCheckAll.Click += btnCheckAll_Click;
             // 
             // btnCartellaPerCopiare
             // 
-            this.btnCartellaPerCopiare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCartellaPerCopiare.Location = new System.Drawing.Point(480, 302);
-            this.btnCartellaPerCopiare.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCartellaPerCopiare.Name = "btnCartellaPerCopiare";
-            this.btnCartellaPerCopiare.Size = new System.Drawing.Size(113, 26);
-            this.btnCartellaPerCopiare.TabIndex = 55;
-            this.btnCartellaPerCopiare.Text = "Scegli cartella";
-            this.btnCartellaPerCopiare.UseVisualStyleBackColor = true;
-            this.btnCartellaPerCopiare.Click += new System.EventHandler(this.btnCartellaPerCopiare_Click);
+            btnCartellaPerCopiare.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCartellaPerCopiare.Location = new Point(419, 347);
+            btnCartellaPerCopiare.Margin = new Padding(4);
+            btnCartellaPerCopiare.Name = "btnCartellaPerCopiare";
+            btnCartellaPerCopiare.Size = new Size(99, 24);
+            btnCartellaPerCopiare.TabIndex = 55;
+            btnCartellaPerCopiare.Text = "Scegli cartella";
+            btnCartellaPerCopiare.UseVisualStyleBackColor = true;
+            btnCartellaPerCopiare.Click += btnCartellaPerCopiare_Click;
+            // 
+            // btnCopiaStruttura
+            // 
+            btnCopiaStruttura.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnCopiaStruttura.Location = new Point(285, 347);
+            btnCopiaStruttura.Margin = new Padding(4);
+            btnCopiaStruttura.Name = "btnCopiaStruttura";
+            btnCopiaStruttura.Size = new Size(102, 24);
+            btnCopiaStruttura.TabIndex = 69;
+            btnCopiaStruttura.Text = "Copia struttura";
+            btnCopiaStruttura.UseVisualStyleBackColor = true;
+            btnCopiaStruttura.Click += btnCopiaStruttura_Click;
             // 
             // txtNuova
             // 
-            this.txtNuova.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNuova.Location = new System.Drawing.Point(3, 270);
-            this.txtNuova.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNuova.Name = "txtNuova";
-            this.txtNuova.Size = new System.Drawing.Size(530, 22);
-            this.txtNuova.TabIndex = 10;
+            txtNuova.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtNuova.Location = new Point(3, 317);
+            txtNuova.Margin = new Padding(4);
+            txtNuova.Name = "txtNuova";
+            txtNuova.Size = new Size(465, 23);
+            txtNuova.TabIndex = 10;
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(-1, 250);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 17);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Nome nuova cartella";
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label5.AutoSize = true;
+            label5.Location = new Point(-1, 298);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(117, 15);
+            label5.TabIndex = 56;
+            label5.Text = "Nome nuova cartella";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Cartelle da creare";
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(98, 15);
+            label1.TabIndex = 3;
+            label1.Text = "Cartelle da creare";
             // 
             // trwCartelleDaCreare
             // 
-            this.trwCartelleDaCreare.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.trwCartelleDaCreare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.trwCartelleDaCreare.CheckBoxes = true;
-            this.trwCartelleDaCreare.HideSelection = false;
-            this.trwCartelleDaCreare.LabelEdit = true;
-            this.trwCartelleDaCreare.Location = new System.Drawing.Point(1, 20);
-            this.trwCartelleDaCreare.Margin = new System.Windows.Forms.Padding(4);
-            this.trwCartelleDaCreare.Name = "trwCartelleDaCreare";
-            this.trwCartelleDaCreare.Size = new System.Drawing.Size(533, 226);
-            this.trwCartelleDaCreare.TabIndex = 2;
-            this.trwCartelleDaCreare.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trwCartelleDaCreare_AfterSelect);
-            this.trwCartelleDaCreare.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trwCartelleDaCreare_KeyDown);
+            trwCartelleDaCreare.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            trwCartelleDaCreare.BackColor = Color.FromArgb(200, 255, 200);
+            trwCartelleDaCreare.CheckBoxes = true;
+            trwCartelleDaCreare.HideSelection = false;
+            trwCartelleDaCreare.LabelEdit = true;
+            trwCartelleDaCreare.Location = new Point(1, 19);
+            trwCartelleDaCreare.Margin = new Padding(4);
+            trwCartelleDaCreare.Name = "trwCartelleDaCreare";
+            trwCartelleDaCreare.Size = new Size(468, 276);
+            trwCartelleDaCreare.TabIndex = 2;
+            trwCartelleDaCreare.AfterSelect += trwCartelleDaCreare_AfterSelect;
+            trwCartelleDaCreare.KeyDown += trwCartelleDaCreare_KeyDown;
             // 
             // btnDisabilitaCreare
             // 
-            this.btnDisabilitaCreare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDisabilitaCreare.Location = new System.Drawing.Point(240, 302);
-            this.btnDisabilitaCreare.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDisabilitaCreare.Name = "btnDisabilitaCreare";
-            this.btnDisabilitaCreare.Size = new System.Drawing.Size(43, 26);
-            this.btnDisabilitaCreare.TabIndex = 67;
-            this.btnDisabilitaCreare.Text = "off";
-            this.btnDisabilitaCreare.UseVisualStyleBackColor = true;
-            this.btnDisabilitaCreare.Click += new System.EventHandler(this.btnDisabilitaCreare_Click);
+            btnDisabilitaCreare.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDisabilitaCreare.Location = new Point(210, 347);
+            btnDisabilitaCreare.Margin = new Padding(4);
+            btnDisabilitaCreare.Name = "btnDisabilitaCreare";
+            btnDisabilitaCreare.Size = new Size(38, 24);
+            btnDisabilitaCreare.TabIndex = 67;
+            btnDisabilitaCreare.Text = "off";
+            btnDisabilitaCreare.UseVisualStyleBackColor = true;
+            btnDisabilitaCreare.Click += btnDisabilitaCreare_Click;
             // 
             // btnAbilitaCreare
             // 
-            this.btnAbilitaCreare.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAbilitaCreare.Location = new System.Drawing.Point(284, 302);
-            this.btnAbilitaCreare.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAbilitaCreare.Name = "btnAbilitaCreare";
-            this.btnAbilitaCreare.Size = new System.Drawing.Size(43, 26);
-            this.btnAbilitaCreare.TabIndex = 66;
-            this.btnAbilitaCreare.Text = "on";
-            this.btnAbilitaCreare.UseVisualStyleBackColor = true;
-            this.btnAbilitaCreare.Click += new System.EventHandler(this.btnAbilitaCreare_Click);
-            // 
-            // btnCreaCartella
-            // 
-            this.btnCreaCartella.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreaCartella.Location = new System.Drawing.Point(1085, 75);
-            this.btnCreaCartella.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreaCartella.Name = "btnCreaCartella";
-            this.btnCreaCartella.Size = new System.Drawing.Size(111, 27);
-            this.btnCreaCartella.TabIndex = 77;
-            this.btnCreaCartella.Text = "Crea cartella";
-            this.btnCreaCartella.UseVisualStyleBackColor = true;
-            this.btnCreaCartella.Click += new System.EventHandler(this.btnCreaCartella_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(269, 199);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(16, 17);
-            this.label9.TabIndex = 82;
-            this.label9.Text = "a";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(128, 199);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(26, 17);
-            this.label10.TabIndex = 81;
-            this.label10.Text = "Da";
-            // 
-            // txtDiscoVecchio
-            // 
-            this.txtDiscoVecchio.Location = new System.Drawing.Point(156, 196);
-            this.txtDiscoVecchio.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiscoVecchio.Name = "txtDiscoVecchio";
-            this.txtDiscoVecchio.Size = new System.Drawing.Size(105, 22);
-            this.txtDiscoVecchio.TabIndex = 4;
-            this.txtDiscoVecchio.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDiscoVecchio_MouseClick);
-            this.txtDiscoVecchio.Leave += new System.EventHandler(this.txtDiscoVecchio_Leave);
-            // 
-            // btnCambiaDisco
-            // 
-            this.btnCambiaDisco.Location = new System.Drawing.Point(8, 192);
-            this.btnCambiaDisco.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCambiaDisco.Name = "btnCambiaDisco";
-            this.btnCambiaDisco.Size = new System.Drawing.Size(117, 31);
-            this.btnCambiaDisco.TabIndex = 79;
-            this.btnCambiaDisco.Text = "Cambia Disco";
-            this.btnCambiaDisco.UseVisualStyleBackColor = true;
-            this.btnCambiaDisco.Click += new System.EventHandler(this.btnCambiaDisco_Click);
-            // 
-            // txtDiscoNuovo
-            // 
-            this.txtDiscoNuovo.Location = new System.Drawing.Point(288, 196);
-            this.txtDiscoNuovo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDiscoNuovo.Name = "txtDiscoNuovo";
-            this.txtDiscoNuovo.Size = new System.Drawing.Size(105, 22);
-            this.txtDiscoNuovo.TabIndex = 5;
-            this.txtDiscoNuovo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDiscoNuovo_MouseClick);
-            this.txtDiscoNuovo.Leave += new System.EventHandler(this.txtDiscoNuovo_Leave);
+            btnAbilitaCreare.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAbilitaCreare.Location = new Point(248, 347);
+            btnAbilitaCreare.Margin = new Padding(4);
+            btnAbilitaCreare.Name = "btnAbilitaCreare";
+            btnAbilitaCreare.Size = new Size(38, 24);
+            btnAbilitaCreare.TabIndex = 66;
+            btnAbilitaCreare.Text = "on";
+            btnAbilitaCreare.UseVisualStyleBackColor = true;
+            btnAbilitaCreare.Click += btnAbilitaCreare_Click;
             // 
             // btnOrdina
             // 
-            this.btnOrdina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOrdina.Location = new System.Drawing.Point(123, 302);
-            this.btnOrdina.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrdina.Name = "btnOrdina";
-            this.btnOrdina.Size = new System.Drawing.Size(50, 26);
-            this.btnOrdina.TabIndex = 68;
-            this.btnOrdina.Text = "Ord";
-            this.btnOrdina.UseVisualStyleBackColor = true;
-            this.btnOrdina.Click += new System.EventHandler(this.btnOrdina_Click);
+            btnOrdina.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnOrdina.Location = new Point(108, 347);
+            btnOrdina.Margin = new Padding(4);
+            btnOrdina.Name = "btnOrdina";
+            btnOrdina.Size = new Size(44, 24);
+            btnOrdina.TabIndex = 68;
+            btnOrdina.Text = "Ord";
+            btnOrdina.UseVisualStyleBackColor = true;
+            btnOrdina.Click += btnOrdina_Click;
+            // 
+            // btnCreaCartella
+            // 
+            btnCreaCartella.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCreaCartella.Location = new Point(957, 117);
+            btnCreaCartella.Margin = new Padding(4);
+            btnCreaCartella.Name = "btnCreaCartella";
+            btnCreaCartella.Size = new Size(97, 25);
+            btnCreaCartella.TabIndex = 77;
+            btnCreaCartella.Text = "Crea cartella";
+            btnCreaCartella.UseVisualStyleBackColor = true;
+            btnCreaCartella.Click += btnCreaCartella_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(235, 187);
+            label9.Name = "label9";
+            label9.Size = new Size(13, 15);
+            label9.TabIndex = 82;
+            label9.Text = "a";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(112, 187);
+            label10.Name = "label10";
+            label10.Size = new Size(21, 15);
+            label10.TabIndex = 81;
+            label10.Text = "Da";
+            // 
+            // txtDiscoVecchio
+            // 
+            txtDiscoVecchio.Location = new Point(136, 184);
+            txtDiscoVecchio.Margin = new Padding(4);
+            txtDiscoVecchio.Name = "txtDiscoVecchio";
+            txtDiscoVecchio.Size = new Size(92, 23);
+            txtDiscoVecchio.TabIndex = 4;
+            txtDiscoVecchio.MouseClick += txtDiscoVecchio_MouseClick;
+            txtDiscoVecchio.Leave += txtDiscoVecchio_Leave;
+            // 
+            // btnCambiaDisco
+            // 
+            btnCambiaDisco.Location = new Point(7, 180);
+            btnCambiaDisco.Margin = new Padding(4);
+            btnCambiaDisco.Name = "btnCambiaDisco";
+            btnCambiaDisco.Size = new Size(102, 29);
+            btnCambiaDisco.TabIndex = 79;
+            btnCambiaDisco.Text = "Cambia Disco";
+            btnCambiaDisco.UseVisualStyleBackColor = true;
+            btnCambiaDisco.Click += btnCambiaDisco_Click;
+            // 
+            // txtDiscoNuovo
+            // 
+            txtDiscoNuovo.Location = new Point(252, 184);
+            txtDiscoNuovo.Margin = new Padding(4);
+            txtDiscoNuovo.Name = "txtDiscoNuovo";
+            txtDiscoNuovo.Size = new Size(92, 23);
+            txtDiscoNuovo.TabIndex = 5;
+            txtDiscoNuovo.MouseClick += txtDiscoNuovo_MouseClick;
+            txtDiscoNuovo.Leave += txtDiscoNuovo_Leave;
+            // 
+            // grpFileConfigurazione
+            // 
+            grpFileConfigurazione.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grpFileConfigurazione.Controls.Add(btnNuovo);
+            grpFileConfigurazione.Controls.Add(btnImporta);
+            grpFileConfigurazione.Controls.Add(btnEsporta);
+            grpFileConfigurazione.Controls.Add(btnApriFileConfigurazione);
+            grpFileConfigurazione.Controls.Add(btnSalva);
+            grpFileConfigurazione.Controls.Add(btnTrovaESostituisci);
+            grpFileConfigurazione.Controls.Add(btnApriFile);
+            grpFileConfigurazione.Controls.Add(txtFileConfigurazione);
+            grpFileConfigurazione.Controls.Add(label8);
+            grpFileConfigurazione.Location = new Point(13, 10);
+            grpFileConfigurazione.Name = "grpFileConfigurazione";
+            grpFileConfigurazione.Size = new Size(898, 101);
+            grpFileConfigurazione.TabIndex = 83;
+            grpFileConfigurazione.TabStop = false;
+            grpFileConfigurazione.Text = "Operazioni sui file di configurazione  del programma";
             // 
             // frmMakeAllDirs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(1268, 566);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtDiscoVecchio);
-            this.Controls.Add(this.btnCambiaDisco);
-            this.Controls.Add(this.txtDiscoNuovo);
-            this.Controls.Add(this.btnCreaCartella);
-            this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.btnCreaECopia);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtFileConfigurazione);
-            this.Controls.Add(this.btnNuovo);
-            this.Controls.Add(this.btnApriFile);
-            this.Controls.Add(this.btnTrovaESostituisci);
-            this.Controls.Add(this.btnSalva);
-            this.Controls.Add(this.btnApriFileConfigurazione);
-            this.Controls.Add(this.btnEsporta);
-            this.Controls.Add(this.btnImporta);
-            this.Controls.Add(this.btnLaunchAll);
-            this.Controls.Add(this.txtEdit);
-            this.Controls.Add(this.btnCartellaCopia);
-            this.Controls.Add(this.btnCartellaRoot);
-            this.Controls.Add(this.txtCartellaCopia);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtRootDir);
-            this.Controls.Add(this.label2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmMakeAllDirs";
-            this.Text = "MakeAllDirs: crea cartelle e copia files";
-            this.Load += new System.EventHandler(this.frmMakeAllDirs_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            this.splitContainer1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Honeydew;
+            ClientSize = new Size(1110, 595);
+            Controls.Add(grpFileConfigurazione);
+            Controls.Add(label9);
+            Controls.Add(label10);
+            Controls.Add(txtDiscoVecchio);
+            Controls.Add(btnCambiaDisco);
+            Controls.Add(txtDiscoNuovo);
+            Controls.Add(btnCreaCartella);
+            Controls.Add(splitContainer1);
+            Controls.Add(btnCreaECopia);
+            Controls.Add(btnLaunchAll);
+            Controls.Add(txtEdit);
+            Controls.Add(btnCartellaCopia);
+            Controls.Add(btnCartellaRoot);
+            Controls.Add(txtCartellaCopia);
+            Controls.Add(label4);
+            Controls.Add(txtRootDir);
+            Controls.Add(label2);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4);
+            Name = "frmMakeAllDirs";
+            Text = "MakeAllDirs: crea cartelle e copia files";
+            Load += frmMakeAllDirs_Load;
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            grpFileConfigurazione.ResumeLayout(false);
+            grpFileConfigurazione.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -885,5 +900,7 @@
         private System.Windows.Forms.Button btnCambiaDisco;
         private System.Windows.Forms.TextBox txtDiscoNuovo;
         private System.Windows.Forms.Button btnOrdina;
+        private Button btnCopiaStruttura;
+        private GroupBox grpFileConfigurazione;
     }
 }

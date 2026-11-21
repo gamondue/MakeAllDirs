@@ -13,10 +13,32 @@ namespace LaunchAll
     public partial class frmSostituzione : Form
     {
         string nomeEPath;
+        private ToolTip toolTipControlli;
+
         public frmSostituzione(string NomeEPath)
         {
             InitializeComponent();
+            InizializzaToolTipControlli();
             nomeEPath = NomeEPath;
+        }
+
+        private void InizializzaToolTipControlli()
+        {
+            if (toolTipControlli != null)
+                return;
+
+            toolTipControlli = new ToolTip(components);
+            toolTipControlli.AutoPopDelay = 10000;
+            toolTipControlli.InitialDelay = 250;
+            toolTipControlli.ReshowDelay = 100;
+            toolTipControlli.ShowAlways = true;
+
+            toolTipControlli.SetToolTip(txtCerca, "Stringa da cercare nel file.");
+            toolTipControlli.SetToolTip(txtSostituisce, "Stringa da usare in sostituzione.");
+            toolTipControlli.SetToolTip(rdDovunque, "Sostituisce tutte le occorrenze della stringa cercata.");
+            toolTipControlli.SetToolTip(radioButton1, "Opzione non disponibile in questa versione.");
+            toolTipControlli.SetToolTip(btnSostituisci, "Esegue la sostituzione nel file selezionato.");
+            toolTipControlli.SetToolTip(btnAnnulla, "Chiude la finestra senza applicare modifiche.");
         }
 
         private void btnSostituisci_Click(object sender, EventArgs e)
