@@ -97,6 +97,7 @@
             grpFileConfigurazione = new GroupBox();
             label11 = new Label();
             btnCartellaOutDefault = new Button();
+            btnAbout = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -129,10 +130,10 @@
             btnCreaECopia.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnCreaECopia.BackColor = Color.FromArgb(0, 192, 0);
             btnCreaECopia.ForeColor = Color.White;
-            btnCreaECopia.Location = new Point(1032, 22);
+            btnCreaECopia.Location = new Point(1032, 29);
             btnCreaECopia.Margin = new Padding(4);
             btnCreaECopia.Name = "btnCreaECopia";
-            btnCreaECopia.Size = new Size(92, 32);
+            btnCreaECopia.Size = new Size(91, 32);
             btnCreaECopia.TabIndex = 5;
             btnCreaECopia.Text = "Crea e copia";
             btnCreaECopia.UseVisualStyleBackColor = false;
@@ -311,7 +312,7 @@
             btnLaunchAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnLaunchAll.BackColor = Color.FromArgb(192, 0, 0);
             btnLaunchAll.ForeColor = Color.White;
-            btnLaunchAll.Location = new Point(1033, 62);
+            btnLaunchAll.Location = new Point(901, 19);
             btnLaunchAll.Margin = new Padding(4);
             btnLaunchAll.Name = "btnLaunchAll";
             btnLaunchAll.Size = new Size(91, 32);
@@ -845,6 +846,7 @@
             grpFileConfigurazione.Controls.Add(btnApriFile);
             grpFileConfigurazione.Controls.Add(txtFileConfigurazione);
             grpFileConfigurazione.Controls.Add(label8);
+            grpFileConfigurazione.Controls.Add(btnLaunchAll);
             grpFileConfigurazione.Location = new Point(13, 10);
             grpFileConfigurazione.Name = "grpFileConfigurazione";
             grpFileConfigurazione.Size = new Size(1012, 101);
@@ -874,12 +876,24 @@
             btnCartellaOutDefault.UseVisualStyleBackColor = true;
             btnCartellaOutDefault.Click += btnCartellaOutDefault_Click;
             // 
+            // btnAbout
+            // 
+            btnAbout.Location = new Point(1032, 63);
+            btnAbout.Margin = new Padding(4);
+            btnAbout.Name = "btnAbout";
+            btnAbout.Size = new Size(91, 32);
+            btnAbout.TabIndex = 74;
+            btnAbout.Text = "About";
+            btnAbout.UseVisualStyleBackColor = true;
+            btnAbout.Click += btnAbout_Click;
+            // 
             // frmMakeAllDirs
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Honeydew;
             ClientSize = new Size(1130, 595);
+            Controls.Add(btnAbout);
             Controls.Add(btnCartellaOutDefault);
             Controls.Add(label11);
             Controls.Add(grpFileConfigurazione);
@@ -891,7 +905,6 @@
             Controls.Add(btnCreaCartella);
             Controls.Add(splitContainer1);
             Controls.Add(btnCreaECopia);
-            Controls.Add(btnLaunchAll);
             Controls.Add(txtPathDestinazione);
             Controls.Add(btnCartellaCopia);
             Controls.Add(btnCartellaRoot);
@@ -987,5 +1000,6 @@
         private GroupBox grpFileConfigurazione;
         private Label label11;
         private Button btnCartellaOutDefault;
+        private Button btnAbout;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using gamon;
 
 namespace LaunchAll
 {
@@ -243,14 +244,14 @@ namespace LaunchAll
             if (txtNuova.Text != "")
                 etichetta = txtNuova.Text;
             else
-                etichetta="Nuova cartella";
+                etichetta = "Nuova cartella";
             if (trwCartelleDaCreare.SelectedNode != null)
             {
                 // figlio
                 TreeNode temp = new TreeNode(etichetta);
                 trwCartelleDaCreare.SelectedNode.Nodes.Add(temp);
                 trwCartelleDaCreare.SelectedNode = temp;
-                temp.Checked = true; 
+                temp.Checked = true;
                 temp.BeginEdit();
             }
         }
@@ -396,7 +397,7 @@ namespace LaunchAll
 
         private void btnMenoAlbero_Click(object sender, EventArgs e)
         {
-            if (trwCartelleDaCreare.SelectedNode !=null)
+            if (trwCartelleDaCreare.SelectedNode != null)
                 trwCartelleDaCreare.SelectedNode.Remove();
         }
 
@@ -489,7 +490,7 @@ namespace LaunchAll
             // padre
             TreeNode temp = new TreeNode(etichetta);
             trwCartelleDaCreare.Nodes.Add(temp);
-            temp.Checked = true; 
+            temp.Checked = true;
             temp.BeginEdit();
         }
 
@@ -564,13 +565,13 @@ namespace LaunchAll
                 }
                 catch (Exception ex)
                 {
-                    if (!File.Exists(fileDestinazione)) 
-                        MessageBox.Show("Impossibile copiare il file " + fileDestinazione); 
+                    if (!File.Exists(fileDestinazione))
+                        MessageBox.Show("Impossibile copiare il file " + fileDestinazione);
                     else
-                        if (MessageBox.Show("Il file " + fileDestinazione +" esiste già. Lo si vuole copiare comunque?",
-                            "Errore", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) 
+                        if (MessageBox.Show("Il file " + fileDestinazione + " esiste già. Lo si vuole copiare comunque?",
+                            "Errore", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                             == DialogResult.Yes)
-                            File.Copy(filePartenza, fileDestinazione,true);
+                            File.Copy(filePartenza, fileDestinazione, true);
                 }
             }
             MessageBox.Show("Fatto");
@@ -620,7 +621,7 @@ namespace LaunchAll
                 MessageBox.Show("Il programma LaunchAll non è eseguibile");
             }
         }
-        
+
         private void TagliaBackSlash()
         {
             if (!string.IsNullOrEmpty(txtCartellaCopia.Text) && Path.EndsInDirectorySeparator(txtCartellaCopia.Text))
@@ -669,7 +670,7 @@ namespace LaunchAll
                 fileOut.WriteLine(txtRootDir.Text);
                 fileOut.WriteLine("CartellaDefaultPerCopia");
                 fileOut.WriteLine(txtCartellaCopia.Text);
-                fileOut.WriteLine("FilesDaCopiare"); 
+                fileOut.WriteLine("FilesDaCopiare");
                 for (int i = 0; i < lstvwFileDaCopiare.Items.Count; i++)
                 {
                     fileOut.Write(RicavaPercorsoSorgentePerSalvataggio(lstvwFileDaCopiare.Items[i].Text));
@@ -680,7 +681,7 @@ namespace LaunchAll
                     // aggiunge la cartella di destinazione
                     // se c'è qualcosa nella seconda colonna copia nel file la seconda colonna
                     // se non c'è niente nella seconda colonna, mette nel file l'indicazione di root
-                    if (lstvwFileDaCopiare.Items[i].SubItems.Count >1 && lstvwFileDaCopiare.Items[i].SubItems[1].Text != "")
+                    if (lstvwFileDaCopiare.Items[i].SubItems.Count > 1 && lstvwFileDaCopiare.Items[i].SubItems[1].Text != "")
                         fileOut.WriteLine("|" + lstvwFileDaCopiare.Items[i].SubItems[1].Text);
                     else
                         fileOut.WriteLine("|" + PrefissoRelativo());
@@ -700,7 +701,7 @@ namespace LaunchAll
 
             fileOut.Close();
             return true;
-    }
+        }
 
         private void SalvaFiglio(TreeNode NodoCorrente, StreamWriter fileOut)
         {
@@ -717,7 +718,7 @@ namespace LaunchAll
             StreamReader sr;
             int riga = 0;
             string Line;
-            string[] campi; 
+            string[] campi;
 
             try
             {
@@ -780,15 +781,16 @@ namespace LaunchAll
             // lettura della struttura di cartelle da creare
             if (CancellaPrecedenti)
                 trwCartelleDaCreare.Nodes.Clear();
-            
+
             string fullPath;
             while ((fullPath = sr.ReadLine()) != null)
             {
-                if (fullPath != "") {
-                bool pathAbilitata = (fullPath.Substring(fullPath.LastIndexOf("|")) == "|AB");
-                fullPath = fullPath.Remove(fullPath.LastIndexOf("|")); 
-                TreeNode nodoRadice = null; 
-                ElaboraNodo(nodoRadice, fullPath, pathAbilitata);
+                if (fullPath != "")
+                {
+                    bool pathAbilitata = (fullPath.Substring(fullPath.LastIndexOf("|")) == "|AB");
+                    fullPath = fullPath.Remove(fullPath.LastIndexOf("|"));
+                    TreeNode nodoRadice = null;
+                    ElaboraNodo(nodoRadice, fullPath, pathAbilitata);
                 }
             }
             trwCartelleDaCreare.ExpandAll();
@@ -802,7 +804,7 @@ namespace LaunchAll
             string cartellaFiglia;
             int slash = Path.IndexOf(System.IO.Path.DirectorySeparatorChar);
             if (slash >= 0)
-                cartellaFiglia = Path.Substring(0,slash);
+                cartellaFiglia = Path.Substring(0, slash);
             else
                 cartellaFiglia = Path;
 
@@ -864,7 +866,7 @@ namespace LaunchAll
             // se la path passata ha nuovi figli, taglia il nodo appena elaborato e passa al prossimo
             if (slash >= 0)
             {
-                string nuovaPath = Path.Substring(slash+1);
+                string nuovaPath = Path.Substring(slash + 1);
                 ElaboraNodo(figlio, nuovaPath, Abilitata);
             }
         }
@@ -1049,13 +1051,13 @@ namespace LaunchAll
         private void btnCheckAll_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem nodo in lstvwFileDaCopiare.Items)
-                nodo.Checked = true; 
+                nodo.Checked = true;
         }
 
         private void btnDeCheckAll_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem nodo in lstvwFileDaCopiare.Items)
-                nodo.Checked = false; 
+                nodo.Checked = false;
         }
 
         private void btnAbilitaCreare_Click(object sender, EventArgs e)
@@ -1076,7 +1078,8 @@ namespace LaunchAll
             }
         }
 
-        private void AbilitaAlbero(TreeNode Nodo, bool Abilita) {
+        private void AbilitaAlbero(TreeNode Nodo, bool Abilita)
+        {
             foreach (TreeNode n in Nodo.Nodes)
             {
                 AbilitaAlbero(n, false);
@@ -1437,6 +1440,12 @@ namespace LaunchAll
         private void btnOrdina_Click(object sender, EventArgs e)
         {
             trwCartelleDaCreare.Sort();
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            Form About = new frmAbout();
+            About.Show();
         }
     }
 }
